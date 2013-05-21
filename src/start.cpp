@@ -1,7 +1,7 @@
 /*!
- * @mainpage Tetris
+ * @mainpage C-Projekt
  *
- * @author DHBW Karslruhe TINF12B5 Tetris Gruppe
+ * @author DHBW Karslruhe TINF12B5 Gruppe 2
  *
  * @section sec1 Ziel des Projektes
  * Lernen der Programmiersprache C++.
@@ -10,7 +10,7 @@
  * Grundlagen in C.
  *
  * @section doku Dokumentation
- * Dokumentation wird mit hilfe von Doxygen automatisch erstellt. Bitte die Dokumentation von Doxygen f&uuml;r die Kommentare beachten und auch verwenden.
+ * Dokumentation wird mithilfe von Doxygen automatisch erstellt. Bitte die Dokumentation von Doxygen f&uuml;r die Kommentare beachten und auch verwenden.
  */
 
 
