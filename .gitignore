@@ -18,7 +18,12 @@ local.properties
 
 #HTML Documentation
 *.doxyfile
-doc/html/
+docs/html/
+docs/latex/
+docs/man/
+docs/rtf/
+docs/xml/
+
 
 # External tool builders
 .externalToolBuilders/
