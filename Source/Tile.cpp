@@ -7,7 +7,8 @@
 
 #include "Tile.h"
 
-Tile::Tile() {
+Tile::Tile()
+{
 	// TODO Auto-generated constructor stub
 
 }
