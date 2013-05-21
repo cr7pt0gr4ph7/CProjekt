@@ -7,9 +7,18 @@
 
 #include "Tile.h"
 
-Tile::Tile()
+Tile::Tile():
+		name("KEIN NAMEN VORHANDEN"),
+		description("KEINE BESCHREIBUNG VORHANDEN")
 {
 	// TODO Auto-generated constructor stub
+
+}
+
+Tile::Tile(char *_name, char* _description):
+		name(_name),
+		description(_description)
+{
 
 }
 
