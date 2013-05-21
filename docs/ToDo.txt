@@ -1,1 +1,37 @@
 Remaining tasks:
+
+Spieler
+=======
+
+Als Spieler erwarte ich:
+    einen Begrüßungstext, um in das Spiel einzusteigen
+    Akzeptanzkriterien:
+        Ich kann beenden, ich kann starten, ich kann eine Anleitung abrufen
+        
+Als Spieler erwarte ich:
+    eine Anleitung, um das Spiel zu bedienen.
+    Akzeptanzkriterien:
+        Mir wird die Tastaturbelegung angezeigt.
+        
+Spielsteine
+===========
+
+Als Spieler erwarte ich:
+    erwarte ich eine Vorstellung der Spielsteine.
+    Akzeptanzkriterien:
+        Vorhandene Steine: L, J, S, Z, T, O
+        
+        
+Spielbrett
+==========
+
+Als Spieler erwarte ich:
+    dass mir eine Spielfeld dargestellt wird.
+    Akzeptanzkriterien:
+        Maße des Spielfelds: 15x30 (Breite x Höhe)
+        
+Als Spieler möchte ich:
+    Eine Vorschau für den kommenden Stein sehen
+
+Als Spieler möchte ich:
+    meine aktuelle Punktzahl angezeigt bekommen
