@@ -16,6 +16,10 @@ local.properties
 .settings/
 .loadpath
 
+#HTML Documentation
+*.doxyfile
+doc/html/
+
 # External tool builders
 .externalToolBuilders/
 
