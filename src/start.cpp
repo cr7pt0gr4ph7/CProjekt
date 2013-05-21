@@ -25,6 +25,10 @@
  *
  */
 
+#include <stdlib.h>
+#include <iostream>
+using namespace std;
+
 /*!
  * @brief	Einstiegspunkt f&uuml;r das gesammte Projekt.
  * Hier werden die erste Schritte ausgef&uuml;rt und erlebt somit das Projekt zum leben.
@@ -34,6 +38,11 @@
  */
 int main(int argc, char **argv)
 {
+	cout << "===========================================================" << endl;
+	cout << "=      CProjekt                                           =" << endl;
+	cout << "===========================================================" << endl;
+
+	system("PAUSE");
 	return 0;
 }
 
