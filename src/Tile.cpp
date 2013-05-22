@@ -7,31 +7,28 @@
 
 #include "Tile.h"
 
-/*!
- * Konstrutor mit Standartwerten
- */
 Tile::Tile() :
 			title( "KEIN NAMEN VORHANDEN" ),
-			description( "KEINE BESCHREIBUNG VORHANDEN" )
+			description( "KEINE BESCHREIBUNG VORHANDEN" ),
+			rotation( 0 ),
+			seal( false ),
+			height( 0 ),
+			width( 0 )
 {
 
 }
 
-/*!
- * Konstrutor
- * @param _title	Titel des Bausteins
- * @param _description	Beschreibung des Bausteins
- */
 Tile::Tile( const char *_title , const char* _description ) :
 			title( _title ),
-			description( _description )
+			description( _description ),
+			rotation( 0 ),
+			seal( false ),
+			height( 0 ),
+			width( 0 )
 {
 
 }
 
-/*!
- * Destruktor
- */
 Tile::~Tile()
 {
 
