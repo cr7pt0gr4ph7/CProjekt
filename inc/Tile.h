@@ -12,10 +12,10 @@ class Tile
 {
 public:
 	Tile();
-	Tile(char *_name, char* _description);
+	Tile(const char *_title, const char* _description);
 	virtual ~Tile();
 private:
-	const char *name;			//!< Name des Bausteines
+	const char *title;			//!< Name des Bausteines
 	const char *description;	//!< Beschreibung des Bausteienes
 };
 

@@ -7,22 +7,33 @@
 
 #include "Tile.h"
 
-Tile::Tile():
-		name("KEIN NAMEN VORHANDEN"),
-		description("KEINE BESCHREIBUNG VORHANDEN")
-{
-	// TODO Auto-generated constructor stub
-
-}
-
-Tile::Tile(char *_name, char* _description):
-		name(_name),
-		description(_description)
+/*!
+ * Konstrutor mit Standartwerten
+ */
+Tile::Tile() :
+			title( "KEIN NAMEN VORHANDEN" ),
+			description( "KEINE BESCHREIBUNG VORHANDEN" )
 {
 
 }
 
-Tile::~Tile() {
-	// TODO Auto-generated destructor stub
+/*!
+ * Konstrutor
+ * @param _title	Titel des Bausteins
+ * @param _description	Beschreibung des Bausteins
+ */
+Tile::Tile( const char *_title , const char* _description ) :
+			title( _title ),
+			description( _description )
+{
+
+}
+
+/*!
+ * Destruktor
+ */
+Tile::~Tile()
+{
+
 }
 
