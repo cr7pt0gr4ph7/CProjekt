@@ -29,7 +29,7 @@
 #include <iostream>
 using namespace std;
 
-#include "Tile.h"
+#include "../inc/Tile.h"
 #include <stdio.h>
 
 /*!
@@ -48,6 +48,8 @@ int main(int argc, char **argv)
 	Tile *pTile = new Tile("TESTStein", "Zum Testen der Funktion", 1, 4);
 
 	printf("%s - Hoehe: %i, Breite: %i", pTile->getTitle(), pTile->getHeight(), pTile->getWidth());
+	cout << endl << "rotiere Stein..." << endl;
+	cout << "neue Hoehe: " << pTile->getHeight() << " , Breite: " << pTile->getWidth() << endl;
 	system("PAUSE");
 	delete(pTile);
 	return 0;

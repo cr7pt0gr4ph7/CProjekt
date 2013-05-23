@@ -20,6 +20,7 @@ class Tile
 		bool seal;						//!< Ist Baustein gespiegelt?
 		unsigned short height;			//!< H&ouml;he des Bausteines
 		unsigned short width;			//!< Breite des Bausteines
+		Block * blockArray;
 	public:
 		/*!
 		 * \brief Konstrutor mit Standartwerten.
@@ -111,6 +112,7 @@ class Tile
 		 */
 		virtual Block getBlock(
 			unsigned short _width , unsigned short _height );
+		virtual void rotate(void);
 };
 
 #endif /* TILE_H_ */
