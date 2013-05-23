@@ -29,6 +29,9 @@
 #include <iostream>
 using namespace std;
 
+#include "Tile.h"
+#include <stdio.h>
+
 /*!
  * @brief	Einstiegspunkt f&uuml;r das gesammte Projekt.
  * Hier werden die erste Schritte ausgef&uuml;rt und erlebt somit das Projekt zum leben.
@@ -42,7 +45,11 @@ int main(int argc, char **argv)
 	cout << "=      CProjekt                                           =" << endl;
 	cout << "===========================================================" << endl;
 
+	Tile *pTile = new Tile("TESTStein", "Zum Testen der Funktion", 1, 4);
+
+	printf("%s - Hoehe: %i, Breite: %i", pTile->getTitle(), pTile->getHeight(), pTile->getWidth());
 	system("PAUSE");
+	delete(pTile);
 	return 0;
 }
 

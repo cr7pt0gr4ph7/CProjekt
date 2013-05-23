@@ -72,21 +72,45 @@ class Tile
 		{
 			return rotation;
 		}
-
-		// weitere get Funktionen implementieren
+		/*!
+		 * Gibt zur&uuml;ck, ob der Baustein gespieglt ist
+		 * @return TURE: Gespeigelt, FALSE: Nicht gespiegelt
+		 */
+		const bool getSeal() const
+		{
+			return seal;
+		}
+		/*!
+		 * Gibt die H&ouml;he des Bausteins zur&uuml;ck;
+		 * @return H&ouml;he des Bausteienes
+		 */
+		const unsigned short getHeight() const
+		{
+			return height;
+		}
+		/*!
+		 * Gibt die Breite des Bausteins zur&uuml;ck;
+		 * @return Breite des Bausteienes
+		 */
+		const unsigned short getWidth() const
+		{
+			return width;
+		}
 
 		/*!
 		 * Gibt den Zeiger auf einen Block zur&uuml;ck.
 		 * @param _width Position auf der x-Achse (Breite)
-		 * @param __height Postition auf der y-Achse (H&ouml;he)
+		 * @param _height Postition auf der y-Achse (H&ouml;he)
 		 * @return Zeiger auf einen Block.
 		 */
-		virtual Block *getPBlock(unsigned short _width, unsigned short _height);
+		virtual Block *getPBlock(
+			unsigned short _width , unsigned short _height );
 		/*!
 		 * Gibt einen Block zur&uuml;ck.
 		 * @return Block.
 		 */
-		virtual Block getBlock(unsigned short _width, unsigned short _height);
+		virtual Block getBlock(
+			unsigned short _width , unsigned short _height );
 };
 
 #endif /* TILE_H_ */
