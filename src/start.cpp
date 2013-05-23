@@ -29,7 +29,7 @@
 #include <iostream>
 using namespace std;
 
-#include "../inc/Tile.h"
+#include "Tile.h"
 #include <stdio.h>
 
 /*!
