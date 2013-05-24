@@ -6,7 +6,7 @@
  * @brief	Block.cpp
  */
 
-#include "../inc/Block.h"
+#include "Block.h"
 
 Block::Block()
 {
