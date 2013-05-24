@@ -6,7 +6,7 @@
  * @brief	Console.cpp
  */
 
-#include "../inc/Console.h"
+#include "Console.h"
 
 Console::Console()
 {

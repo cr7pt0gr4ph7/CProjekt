@@ -6,7 +6,7 @@
  * @brief	Interface.cpp
  */
 
-#include "../inc/Interface.h"
+#include "Interface.h"
 
 Interface::Interface()
 {

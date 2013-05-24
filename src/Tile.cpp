@@ -5,7 +5,7 @@
  *      Author: Superuser
  */
 
-#include "../inc/Tile.h"
+#include "Tile.h"
 
 using namespace std;
 //!< Einfacher Zugriff auf Funktionen der Standardbibliothek.
