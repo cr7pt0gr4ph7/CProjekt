@@ -10,12 +10,12 @@
 
 TileO::TileO()
 {
-	// TODO Auto-generated constructor stub
+	Tile("O", "Ich bin ....", 4, 1);
 
 }
 
 TileO::~TileO()
 {
-	// TODO Auto-generated destructor stub
+
 }
 

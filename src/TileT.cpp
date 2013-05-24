@@ -10,12 +10,12 @@
 
 TileT::TileT()
 {
-	// TODO Auto-generated constructor stub
+	Tile("T", "Ich bin ....", 4, 1);
 
 }
 
 TileT::~TileT()
 {
-	// TODO Auto-generated destructor stub
+
 }
 
