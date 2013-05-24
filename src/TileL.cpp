@@ -10,7 +10,7 @@
 
 TileL::TileL()
 {
-	Tile("L", "Ich bin ....", 4, 1);
+	Tile("L", "Ich bin ....", 4, 2);
 }
 
 TileL::~TileL()

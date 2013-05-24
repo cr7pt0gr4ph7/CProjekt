@@ -10,7 +10,7 @@
 
 TileO::TileO()
 {
-	Tile("O", "Ich bin ....", 4, 1);
+	Tile("O", "Ich bin ....", 2, 2);
 
 }
 

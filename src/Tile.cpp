@@ -11,7 +11,7 @@
 using namespace std;
 //!< Einfacher Zugriff auf Funktionen der Standardbibliothek.
 #include <list>							//!< Zur Erstelleung einer einfachern Liste
-list < Block * > listBlock;				//!< Blöcke für die Darstellung
+list < Block * > listBlock;				//!< Bl&ouml;cke f&uuml;r die Darstellung
 
 Tile::Tile() :
 			title( "KEIN NAMEN VORHANDEN" ),

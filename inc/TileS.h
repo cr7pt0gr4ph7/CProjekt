@@ -12,7 +12,7 @@
 #include "Tile.h"
 
 /**
- * \brief Kindklasse f&uuml;r den Spielstein S
+ * \brief Kindklasse von Tile f&uuml;r den Spielstein S
  */
 class TileS : public Tile
 {
