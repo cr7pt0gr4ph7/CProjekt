@@ -21,6 +21,8 @@ class Tile
 		unsigned short height;			//!< H&ouml;he des Bausteines
 		unsigned short width;			//!< Breite des Bausteines
 		Block * blockArray;
+		void transpose(Block* oldArray, int width, int height);
+		void mirror(Block* oldArray, int width, int height);
 	public:
 		/*!
 		 * \brief Konstrutor mit Standartwerten.
@@ -112,7 +114,15 @@ class Tile
 		 */
 		virtual Block getBlock(
 			unsigned short _width , unsigned short _height );
+		/*!
+		 * Dreht den Block im Uhrzeigersinn
+		 */
 		virtual void rotate(void);
+		/*!
+		 * gibt den Block an der Stelle (x|y) zurück. (Relativ zum Ursprung des Steins: links unten)
+		 */
+		virtual Block getBlock(int x, int y);
+
 };
 
 #endif /* TILE_H_ */

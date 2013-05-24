@@ -49,6 +49,7 @@ int main(int argc, char **argv)
 
 	printf("%s - Hoehe: %i, Breite: %i", pTile->getTitle(), pTile->getHeight(), pTile->getWidth());
 	cout << endl << "rotiere Stein..." << endl;
+	pTile->rotate();
 	cout << "neue Hoehe: " << pTile->getHeight() << " , Breite: " << pTile->getWidth() << endl;
 	system("PAUSE");
 	delete(pTile);
