@@ -1,9 +1,9 @@
-/*
+/*!
  * @file	TileO.h
  *
  * @date	24.05.2013
  * @author	Superuser
- * @brief	TileO.h
+ * @brief	Headerdatei f&uuml;r Spielstein O
  */
 
 #ifndef TILEO_H_
@@ -12,7 +12,7 @@
 #include "Tile.h"
 
 /**
- * Kindklasse f&uuml;r den Spielstein O
+ * \brief Kindklasse f&uuml;r den Spielstein O
  */
 class TileO : public Tile
 {

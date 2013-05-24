@@ -1,8 +1,9 @@
-/*
- * Tile.cpp
+/*!
+ * @file	TileI.cpp
  *
- *  Created on: 21.05.2013
- *      Author: Superuser
+ * @date	21.05.2013
+ * @author	Superuser
+ * @brief	Sourcedatei f&uuml;r Spielsteine
  */
 
 #include "Tile.h"

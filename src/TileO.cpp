@@ -1,9 +1,9 @@
-/*
+/*!
  * @file	TileO.cpp
  *
  * @date	24.05.2013
  * @author	Superuser
- * @brief	TileO.cpp
+ * @brief	Sourcedatei f&uuml;r Spielstein O
  */
 
 #include "TileO.h"

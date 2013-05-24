@@ -1,8 +1,9 @@
-/*
- * Tile.h
+/*!
+ * @file	Tile.h
  *
- *  Created on: 21.05.2013
- *      Author: Superuser
+ * @date	24.05.2013
+ * @author	Superuser
+ * @brief	Headerdatei f&uuml;r Spielsteine
  */
 
 #ifndef TILE_H_
@@ -11,7 +12,7 @@
 #include "Block.h"
 
 /**
- * Grundklasse f&uuml;r des Spielstein
+ * \brief Grundklasse f&uuml;r des Spielstein
  */
 class Tile
 {
