@@ -11,10 +11,19 @@
 
 #include "Tile.h"
 
+/**
+ * Kindklasse f&uuml;r den Spielstein T
+ */
 class TileT : public Tile
 {
 	public:
+		/*!
+		 * \brief Konstrutor mit Standartwerten.
+		 */
 		TileT();
+		/*!
+		 * \brief Destruktor
+		 */
 		virtual ~TileT();
 };
 

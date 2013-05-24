@@ -10,6 +10,9 @@
 
 #include "Block.h"
 
+/**
+ * Grundklasse f&uuml;r des Spielstein
+ */
 class Tile
 {
 	private:
