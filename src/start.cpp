@@ -11,6 +11,24 @@
  *
  * @section doku Dokumentation
  * Dokumentation wird mithilfe von Doxygen automatisch erstellt. Bitte die Dokumentation von Doxygen f&uuml;r die Kommentare beachten und auch verwenden.
+ *
+ *
+ * @section graph Aufbau
+ * \dot
+ * digraph Aufbau {
+ * main -> Interface -> Console;
+ * main -> Tile;
+ * Tile -> TileI;
+ * Tile -> TileL;
+ * Tile -> TileO;
+ * Tile -> TileS;
+ * Tile -> TileT;
+ * Tile -> Block
+ * Interface -> Block
+ * Interface -> Gameboard
+ * }
+ * \enddot
+ * Strucktur des Projektes
  */
 
 
