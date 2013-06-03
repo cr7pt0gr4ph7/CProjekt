@@ -49,6 +49,9 @@ int Console::oberflaeche()
 	}
 	if(Eingabe == 3)
 		return 0;
+
+	// TODO: "Spiel" und "Anleitung" implementieren.
+	return 0;
 }
 
 void Console::set_console(short breite, short hoehe)
