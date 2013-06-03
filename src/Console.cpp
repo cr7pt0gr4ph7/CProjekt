@@ -6,7 +6,11 @@
  * @brief	Console.cpp
  */
 
+#include <Windows.h>
+#include <iostream>
 #include "Console.h"
+
+using namespace std;
 
 Console::Console()
 {
@@ -19,3 +23,47 @@ Console::~Console()
 	// TODO Auto-generated destructor stub
 }
 
+int Console::oberflaeche()
+{
+	int Eingabe = 0;
+
+	set_console(50, 35);
+
+	cout << "--------------------------------------------------" << endl;
+	cout << "---------------------TETRIS-----------------------" << endl;
+	cout << "--------------------------------------------------" << endl;
+	cout << "\n(1) Starten" << endl;
+	cout << "(2) Anleitung" << endl;
+	cout << "(3) Beenden" << endl;
+	cin >> Eingabe;
+	
+	if(Eingabe == 1)
+	{
+		cout << "Spiel" << endl;
+		system("PAUSE");
+	}
+	if(Eingabe == 2)
+	{
+		cout << "Anleitung" << endl;
+		system("PAUSE");
+	}
+	if(Eingabe == 3)
+		return 0;
+}
+
+void Console::set_console(short breite, short hoehe)
+{
+	HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
+	SMALL_RECT size;
+	COORD b_size;
+
+	size.Left = 0;
+	size.Top = 0;
+	size.Right = breite;
+	size.Bottom = hoehe;
+	b_size.X = breite+1;
+	b_size.Y = hoehe+1;
+
+	SetConsoleWindowInfo(hCon, true, &size);
+	SetConsoleScreenBufferSize(hCon, b_size);
+}
