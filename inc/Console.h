@@ -16,6 +16,9 @@ class Console: public Interface
 public:
 	Console();
 	virtual ~Console();
+
+	int oberflaeche();
+	void set_console(short breite, short hoehe);
 };
 
 #endif /* CONSOLE_H_ */

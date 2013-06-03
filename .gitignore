@@ -1,3 +1,10 @@
+########################################
+## Additional ignores for Visual Studio
+########################################
+.sln
+.vcxproj
+.vcxproj.filters
+
 #################
 ## Eclipse
 #################
