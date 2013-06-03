@@ -48,7 +48,12 @@
 using namespace std;
 
 #include "Tile.h"
+#include "Console.h"
 #include <stdio.h>
+
+// Durch das Entkommentieren der folgenden Flags lassen sich einige Debug-Meldungen aktivieren:
+// #define DEBUG_GAME_STARTUP
+// #define DEBUG_GAME_SHUTDOWN
 
 /*!
  * @brief	Einstiegspunkt f&uuml;r das gesammte Projekt.
@@ -59,17 +64,35 @@ using namespace std;
  */
 int main(int argc, char **argv)
 {
+#ifdef DEBUG_GAME_STARTUP
+	// HINWEIS: Programmcode, der lediglich zum Debuggen des Spiels benötigt wird,
+	//          sollte zwischen diesem Kommentar und dem "#endif" eingefügt werden.
+
+	// Falls diese Ausgabe erscheint, so wissen wir zumindest,
+	// dass das Program erfolgreich gestartet wurde:
 	cout << "===========================================================" << endl;
 	cout << "=      CProjekt                                           =" << endl;
 	cout << "===========================================================" << endl;
+#endif
 
-	Tile *pTile = new Tile("TESTStein", "Zum Testen der Funktion", 1, 4);
+	// Initialisieren der Benutzeroberfläche (in Form einer Textkonsole)
+	Console* console = new Console();
 
-	printf("%s - Hoehe: %i, Breite: %i", pTile->getTitle(), pTile->getHeight(), pTile->getWidth());
-	cout << endl << "rotiere Stein..." << endl;
-	cout << "neue Hoehe: " << pTile->getHeight() << " , Breite: " << pTile->getWidth() << endl;
+	// Benutzeroberfläche anzeigen
+	console->oberflaeche();
+
+#ifdef DEBUG_GAME_SHUTDOWN
+	cout << endl;
 	system("PAUSE");
-	delete(pTile);
+#endif
+
+	// Aufräumcode:
+	delete console;
+
+#ifdef DEBUG_GAME_SHUTDOWN
+	cout << "Das Programm wurde beendet." << endl;
+#endif
+
 	return 0;
 }
 
