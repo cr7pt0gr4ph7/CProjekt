@@ -31,13 +31,10 @@
  * Strucktur des Projektes
  */
 
-
-
-
 /*!
  * @file	start.cpp
  * @date	21.05.2013
- * @author	Marcel Sutter
+ * @author	MS
  *
  * @brief	Keine Klasse, sondern f&uuml;r den Start notwendig.
  *
@@ -62,7 +59,7 @@ using namespace std;
  * @param argc	Anzahl der Aufrufparameter.
  * @param argv	Pointer auf Aufrufparameter
  */
-int main(int argc, char **argv)
+int main( int argc , char **argv )
 {
 #ifdef DEBUG_GAME_STARTUP
 	// HINWEIS: Programmcode, der lediglich zum Debuggen des Spiels benötigt wird,
@@ -76,10 +73,10 @@ int main(int argc, char **argv)
 #endif
 
 	// Initialisieren der Benutzeroberfläche (in Form einer Textkonsole)
-	Console* console = new Console();
+	Console* console = new Console( );
 
 	// Benutzeroberfläche anzeigen
-	console->oberflaeche();
+	console->oberflaeche( );
 
 #ifdef DEBUG_GAME_SHUTDOWN
 	cout << endl;
