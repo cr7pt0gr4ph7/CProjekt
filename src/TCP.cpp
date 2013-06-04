@@ -1,8 +1,8 @@
 //============================================================================
 // Name        : TCP.cpp
-// Author      : Denis Gauss
+// Author      : Denis Gauss, Maurice Angermann
 // Version     : 1.0.0
-// Copyright   : Your copyright notice
+// Copyright   : 2013, DHBW Karlsruhe
 // Description : Spielbrett in C++, Ansi-style
 //============================================================================
 
