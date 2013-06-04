@@ -8,9 +8,10 @@
 
 #include "TileL.h"
 
-TileL::TileL()
+TileL::TileL() :
+			Tile( "L" , "Ich bin ...." , 4 , 2 )
 {
-	Tile("L", "Ich bin ....", 4, 2);
+
 }
 
 TileL::~TileL()

@@ -8,9 +8,9 @@
 
 #include "TileO.h"
 
-TileO::TileO()
+TileO::TileO() :
+			Tile( "O" , "Ich bin ...." , 2 , 2 )
 {
-	Tile("O", "Ich bin ....", 2, 2);
 
 }
 

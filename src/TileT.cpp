@@ -8,9 +8,9 @@
 
 #include "TileT.h"
 
-TileT::TileT()
+TileT::TileT() :
+			Tile( "T" , "Ich bin ...." , 2 , 3 )
 {
-	Tile("T", "Ich bin ....", 2, 3);
 
 }
 

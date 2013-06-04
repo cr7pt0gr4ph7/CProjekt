@@ -8,9 +8,9 @@
 
 #include "TileS.h"
 
-TileS::TileS()
+TileS::TileS() :
+			Tile( "S" , "Ich bin ...." , 2 , 3 )
 {
-	Tile("S", "Ich bin ....", 2, 3);
 
 }
 
