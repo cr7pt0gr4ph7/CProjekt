@@ -48,14 +48,15 @@ int* fillField(int pWidth,int pHeight)
 int myMain() {
 
 	int width,height;
-	width=17;
-	height=32;
+	height=17;
+	width=32;
 	int* spielfeld=new int[width*height];
-
-	spielfeld=fillField(width,height);
-	printField(spielfeld,width,height);
-	spielfeld= setPoint(5,5,spielfeld,height);
-	printField(spielfeld,width,height);
+	cout<< "Feld 1:"<<endl;
+	spielfeld=fillField(height,width);
+	printField(spielfeld,height,width);
+	cout<< "Feld 2 mit Testpunkt P(15|10):"<<endl;
+	spielfeld= setPoint(15,10,spielfeld,width);
+	printField(spielfeld,height,width);
 
 
 	return 0;
