@@ -7,11 +7,16 @@
  */
 
 #include "TileT.h"
+#include <iostream>
 
-TileT::TileT()
+TileT::TileT() :
+		Tile("T", "4 Bloecke T-foermig angeordnet", 3, 2, createBaseArray())
 {
-	Tile("T", "Ich bin ....", 4, 1);
+}
 
+TileT::TileT(const unsigned short _posX, const unsigned short _posY) :
+		Tile("T", "4 Bloecke T-foermig angeordnet", 3, 2, _posX, _posY, createBaseArray())
+{
 }
 
 TileT::~TileT()
@@ -19,3 +24,19 @@ TileT::~TileT()
 
 }
 
+// erzeugt eine Matrix der Höhe 2 und Breite 3 die komplett mit der Basisform des Steins befuellt ist
+Block** TileT::createBaseArray() {
+	width = 3;
+	height = 2;
+	Block** result = new Block*[width * height];
+	// (0|0) bis (2|0)
+	result[0*height+0] = new Block(true);
+	result[1*height+0] = new Block(true);
+	result[2*height+0] = new Block(true);
+	// (0|1) bis (2|1)
+	result[0*height+1] = new Block(false);
+	result[1*height+1] = new Block(true);
+	result[2*height+1] = new Block(false);
+
+	return result;
+}

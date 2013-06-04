@@ -30,7 +30,17 @@
 using namespace std;
 
 #include "Tile.h"
+#include "TileI.h"
+#include "TileO.h"
+#include "TileT.h"
+#include "TileL.h"
+#include "TileS.h"
+
+#include "Block.h"
+
 #include <stdio.h>
+
+void printTile(Tile * tile);
 
 /*!
  * @brief	Einstiegspunkt f&uuml;r das gesammte Projekt.
@@ -45,14 +55,41 @@ int main(int argc, char **argv)
 	cout << "=      CProjekt                                           =" << endl;
 	cout << "===========================================================" << endl;
 
-	Tile *pTile = new Tile("TESTStein", "Zum Testen der Funktion", 1, 4);
+	Tile *pTile = new TileS();
 
 	printf("%s - Hoehe: %i, Breite: %i", pTile->getTitle(), pTile->getHeight(), pTile->getWidth());
+
+	cout << endl << endl;
+	cout << "~~~~~~~~~~~ Drucke Stein ~~~~~~~~~~~" << endl;
+	printTile(pTile);
+	cout << endl;
+	cout << "~~~~~~~~~~~ ############ ~~~~~~~~~~~" << endl;
+
 	cout << endl << "rotiere Stein..." << endl;
-	pTile->rotate();
+	pTile->rotatecw();
 	cout << "neue Hoehe: " << pTile->getHeight() << " , Breite: " << pTile->getWidth() << endl;
-	system("PAUSE");
+
+	cout << endl << endl;
+	cout << "~~~~~~~~~~~ Drucke Stein ~~~~~~~~~~~" << endl;
+	printTile(pTile);
+	cout << endl;
+	cout << "~~~~~~~~~~~ ############ ~~~~~~~~~~~" << endl;
+//	system("PAUSE");
 	delete(pTile);
 	return 0;
+}
+
+void printTile(Tile * tile) {
+	for (int y = 0; y < 5; ++y) {
+		for (int x = 0; x < 5; ++x) {
+			if (tile->getBlock(x,y)->isRendered()) {
+				cout << "X";
+			} else {
+				cout << " ";
+				delete tile->getBlock(x,y);
+			}
+		}
+		cout << endl;
+	}
 }
 

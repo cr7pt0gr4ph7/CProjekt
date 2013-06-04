@@ -15,7 +15,10 @@ class TileL : public Tile
 {
 	public:
 		TileL();
+		TileL(const unsigned short _posX, const unsigned short _posY);
 		virtual ~TileL();
+	private:
+		virtual Block** createBaseArray();
 };
 
 #endif /* TILEL_H_ */
