@@ -27,7 +27,7 @@ int* fillField(int pWidth,int pHeight)
 {
 	int x,y;
 	int* temp=new int[pWidth*pHeight];
-	for(x=0;x<pWidth;x++){			//Spielfeld+Rand füllen
+	for(x=0;x<pWidth;x++){			//Spielfeld+Rand fÃ¼llen
 
 			for(y=0;y<pHeight;y++){
 
@@ -46,7 +46,7 @@ int* fillField(int pWidth,int pHeight)
 	return temp;
 
 }
-int main() {
+int myMain() {
 
 	int width,height;
 	width=17;
