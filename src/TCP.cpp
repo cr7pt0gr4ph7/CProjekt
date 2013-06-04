@@ -10,7 +10,22 @@
 #include "../inc/tcp.h"
 using namespace std;
 
-int tcp_main() {
+Spielfeld::Spielfeld(){
+}
+
+Spielfeld::~Spielfeld(){
+}
+
+int Spielfeld::setFieldWidth(int pWidth)
+{
+	width = pWidth;
+}
+int Spielfeld::setFieldHeight(int pHeight)
+{
+	height = pHeight;
+}
+
+int Spielfeld::tcp_main() {
 
 	int width,height,pX,pY;
 	pX=15;
@@ -30,10 +45,9 @@ int tcp_main() {
 	spielfeld = setPoint(15,10,spielfeld,width);
 	printField(spielfeld,height,width);
 
-
 	return 0;
 }
-void printField(char* pField,int pWidth,int pHeight)
+void Spielfeld::printField(char* pField,int pWidth,int pHeight)
 {
 	int x,y;
 	for(x=0;x<pWidth;x++){			//Spielfeld ausgeben
@@ -43,12 +57,12 @@ void printField(char* pField,int pWidth,int pHeight)
 		cout<<endl;
 	}
 }
-char* setPoint(int aX,int aY,char* pField,int pHeight)
+char* Spielfeld::setPoint(int aX,int aY,char* pField,int pHeight)
 {
 	pField[aX*pHeight+aY]='1';
 	return pField;
 }
-char* fillField(int pWidth,int pHeight)
+char* Spielfeld::fillField(int pWidth,int pHeight)
 {
 	int x,y;
 	char* temp=new char[pWidth*pHeight];
