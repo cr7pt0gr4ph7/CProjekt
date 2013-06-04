@@ -18,6 +18,7 @@ public:
 	virtual ~Console();
 
 	int oberflaeche();
+	int anleitung();
 	void set_console(short breite, short hoehe);
 };
 

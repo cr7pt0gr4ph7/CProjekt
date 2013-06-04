@@ -45,12 +45,72 @@ int Console::oberflaeche()
 	if(Eingabe == 2)
 	{
 		cout << "Anleitung" << endl;
-		system("PAUSE");
+		this->anleitung();
 	}
 	if(Eingabe == 3)
 		return 0;
 
 	// TODO: "Spiel" und "Anleitung" implementieren.
+	return 0;
+}
+
+int Console::anleitung()
+{
+	cout << endl << "== Verfügbare Spielsteine ==" << endl << endl;
+
+	cout << "[* ] - Der L-Baustein" <<  endl;
+	cout << "[* ]" << endl;
+	cout << "[**]" << endl;
+
+	cout << endl;
+
+	cout << "[ *] - Der J-Baustein" <<  endl;
+	cout << "[ *]" << endl;
+	cout << "[**]" << endl;
+
+	cout << endl;
+	system("PAUSE");
+	cout << endl;
+
+	cout << "[*] - Der S-Baustein" <<  endl;
+	cout << "[**]" << endl;
+	cout << "[ *]" << endl;
+
+	cout << endl;
+
+	cout << "[ *] - Der Z-Baustein" <<  endl;
+	cout << "[**]" << endl;
+	cout << "[* ]" << endl;
+
+	cout << endl;
+	system("PAUSE");
+	cout << endl;
+
+	cout << "[ *] - Der T-Baustein" <<  endl;
+	cout << "[**]" << endl;
+	cout << "[ *]" << endl;
+
+	cout << endl;
+	system("PAUSE");
+	cout << endl;
+
+	cout << "[ *] - Der O-Baustein" <<  endl;
+	cout << "[**]" << endl;
+	cout << "[ *]" << endl;
+
+	cout << endl;
+	system("PAUSE");
+	cout << endl;
+
+	cout << "[*]  - Der I-Baustein" <<  endl;
+	cout << "[*]" << endl;
+	cout << "[*]" << endl;
+	cout << "[*]" << endl;
+
+	cout << endl;
+
+	system("PAUSE");
+
 	return 0;
 }
 
