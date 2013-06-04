@@ -5,7 +5,7 @@
  *      Author: Superuser
  */
 
-#include "Tile.h"
+#include "../inc/Tile.h"
 
 Tile::Tile()
 {

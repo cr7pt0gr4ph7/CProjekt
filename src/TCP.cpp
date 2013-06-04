@@ -7,7 +7,6 @@
 //============================================================================
 
 #include <iostream>
-#include <windows.h>
 using namespace std;
 
 void printField(int* pField,int pWidth,int pHeight)

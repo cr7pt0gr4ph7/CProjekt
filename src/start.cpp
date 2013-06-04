@@ -42,7 +42,6 @@ int main(int argc, char **argv)
 	cout << "=      CProjekt                                           =" << endl;
 	cout << "===========================================================" << endl;
 
-	system("PAUSE");
 	return 0;
 }
 
