@@ -8,7 +8,7 @@
 
 #include <Windows.h>
 #include <iostream>
-#include "Console.h"
+#include "../inc/Console.h"
 
 using namespace std;
 

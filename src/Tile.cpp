@@ -6,7 +6,7 @@
  * @brief	Sourcedatei f&uuml;r Spielsteine
  */
 
-#include "Tile.h"
+#include "../inc/Tile.h"
 
 using namespace std;
 //!< Einfacher Zugriff auf Funktionen der Standardbibliothek.
