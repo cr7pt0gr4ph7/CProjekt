@@ -34,7 +34,7 @@
 /*!
  * @file	start.cpp
  * @date	21.05.2013
- * @author	Marcel Sutter
+ * @author	MS
  *
  * @brief	Keine Klasse, sondern f&uuml;r den Start notwendig.
  *
