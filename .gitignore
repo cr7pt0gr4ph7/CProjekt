@@ -18,6 +18,7 @@ local.properties
 
 #HTML Documentation
 *.doxyfile
+docs/*.html
 docs/html/
 docs/latex/
 docs/man/
