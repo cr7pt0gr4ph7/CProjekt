@@ -31,9 +31,6 @@
  * Strucktur des Projektes
  */
 
-
-
-
 /*!
  * @file	start.cpp
  * @date	21.05.2013
@@ -57,19 +54,29 @@ using namespace std;
  * @param argc	Anzahl der Aufrufparameter.
  * @param argv	Pointer auf Aufrufparameter
  */
-int main(int argc, char **argv)
+int main( int argc , char **argv )
 {
-	cout << "===========================================================" << endl;
-	cout << "=      CProjekt                                           =" << endl;
-	cout << "===========================================================" << endl;
+	cout << "==========================================================="
+			<< endl;
+	cout << "=      CProjekt                                           ="
+			<< endl;
+	cout << "==========================================================="
+			<< endl;
 
-	Tile *pTile = new Tile("TESTStein", "Zum Testen der Funktion", 1, 4);
+	/*string name;
+	cout << "Bitte geben sie ihren Spielernamen ein (Ohne Leerzeichen): ";
+	cin >> name;
+	cout << name << endl;*/
 
-	printf("%s - Hoehe: %i, Breite: %i", pTile->getTitle(), pTile->getHeight(), pTile->getWidth());
+	Tile *pTile = new Tile( "TESTStein" , "Zum Testen der Funktion" , 1 , 4 );
+
+	printf( "%s - Hoehe: %i, Breite: %i" , pTile->getTitle( ) ,
+			pTile->getHeight( ) , pTile->getWidth( ) );
 	cout << endl << "rotiere Stein..." << endl;
-	cout << "neue Hoehe: " << pTile->getHeight() << " , Breite: " << pTile->getWidth() << endl;
-	system("PAUSE");
-	delete(pTile);
+	cout << "neue Hoehe: " << pTile->getHeight( ) << " , Breite: "
+			<< pTile->getWidth( ) << endl;
+	//system("PAUSE");
+	delete ( pTile );
 	return 0;
 }
 
