@@ -10,43 +10,15 @@
 #include "../inc/tcp.h"
 using namespace std;
 
-Spielfeld::Spielfeld(){
-}
-
-Spielfeld::~Spielfeld(){
-}
-
-int Spielfeld::setFieldWidth(int pWidth)
+void Spielfeld::setFieldWidth(int pWidth)
 {
 	width = pWidth;
 }
-int Spielfeld::setFieldHeight(int pHeight)
+void Spielfeld::setFieldHeight(int pHeight)
 {
 	height = pHeight;
 }
 
-int Spielfeld::tcp_main() {
-
-	int width,height,pX,pY;
-	pX=15;
-	pY=10;
-	height=17;
-	width=32;
-
-	char* spielfeld=new char[width*height];
-
-	cout<< "Feld 1:"<<endl;
-
-	spielfeld = fillField(height,width);	//Leeres Spielfeld intiieren
-	printField(spielfeld,height,width);	//Leeres Spielfeld ausgeben
-
-	cout<< "Feld 2 mit Testpunkt P(" << pX << "|" << pY << "):"<<endl;
-
-	spielfeld = setPoint(15,10,spielfeld,width);
-	printField(spielfeld,height,width);
-
-	return 0;
-}
 void Spielfeld::printField(char* pField,int pWidth,int pHeight)
 {
 	int x,y;
@@ -80,4 +52,18 @@ char* Spielfeld::fillField(int pWidth,int pHeight)
 		}
 	}
 	return temp;
+}
+
+Spielfeld::Spielfeld(int pWidth, int pHeight){
+	setFieldHeight(pHeight);
+	setFieldWidth(pWidth);
+
+	char* spielfeld=new char[width*height];
+
+	cout<< "leeres Spielfeld:"<<endl;
+
+	spielfeld = fillField(height,width);	//Leeres Spielfeld intiieren
+}
+
+Spielfeld::~Spielfeld(){
 }
