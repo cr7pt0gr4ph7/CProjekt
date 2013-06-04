@@ -30,10 +30,10 @@
 using namespace std;
 
 /*!
- * @brief	Einstiegspunkt f&uuml;r das gesammte Projekt.
- * Hier werden die erste Schritte ausgef&uuml;rt und erlebt somit das Projekt zum leben.
+ * @brief	Einstiegspunkt f&uuml;r das gesamte Projekt.
+ * Hier werden die ersten Schritte ausgef&uuml;hrt und erwecken somit das Projekt zum Leben.
  *
- * @param argc	Anzahl der Aufrufparameter.
+ * @param argc	Anzahl der Aufrufparameter
  * @param argv	Pointer auf Aufrufparameter
  */
 int main(int argc, char **argv)
