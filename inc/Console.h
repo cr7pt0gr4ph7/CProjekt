@@ -11,15 +11,23 @@
 
 #include "Interface.h"
 
-class Console: public Interface
+class Console : public Interface
 {
-public:
-	Console();
-	virtual ~Console();
+	private:
+		HANDLE hCon;
 
-	int oberflaeche();
-	int anleitung();
-	void set_console(short breite, short hoehe);
+		HANDLE getHCon() const
+		{
+			return hCon;
+		}
+
+	public:
+		Console();
+		virtual ~Console();
+
+		int oberflaeche();
+		int anleitung();
+		void set_console( short breite , short hoehe );
 };
 
 #endif /* CONSOLE_H_ */
