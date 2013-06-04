@@ -1,5 +1,5 @@
 /*!
- * @mainpage C-Projekt
+ * @mainpage CProjekt
  *
  * @author DHBW Karslruhe TINF12B5 Gruppe 2
  *
@@ -10,7 +10,13 @@
  * Grundlagen in C.
  *
  * @section doku Dokumentation
- * Dokumentation wird mithilfe von Doxygen automatisch erstellt. Bitte die Dokumentation von Doxygen f&uuml;r die Kommentare beachten und auch verwenden.
+ * Die Dokumentation zu diesem Projekt wird mit [Doxygen](http://www.doxygen.org) und [Graphviz](http://www.graphviz.org) automatisch generiert.
+ *
+ * Eine gute Einf&uuml;hrung in Doxygen ist beispielsweise [hier](http://www2.informatik.hu-berlin.de/swt/projekt98/werkzeuge/doxygen/Doxygen.html#tth_chAp4) zu finden.
+ *
+ * Allen &ouml;ffentlichen Methoden und Attribute sollen so beschrieben werden, dass sich die Benutzung der Klasse alleine anhand der Dokumentation erschlie&szlig;t. Aus diesem Grunde sollten auch die von einer Methode erwarteten &Uuml;bergabeparameter sowie deren R&uuml;ckgabeewerte ausreichend detailliert beschrieben werden.
+ *
+ * Eine klare und saubere Dokumentation vereinfacht in allen F&auml;llen die Zusammenarbeit im Team wesentlich.
  *
  *
  * @section graph Aufbau
