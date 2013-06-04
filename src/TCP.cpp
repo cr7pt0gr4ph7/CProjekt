@@ -7,8 +7,28 @@
 //============================================================================
 
 #include <iostream>
+#include "../inc/tcp.h"
 using namespace std;
 
+int tcp_main() {
+
+	int width,height,pX,pY;
+	pX=15;
+	pY=10;
+	height=17;
+	width=32;
+
+	int* spielfeld=new int[width*height]; //Leeres Spielfeld ausgeben
+	cout<< "Feld 1:"<<endl;
+	spielfeld=fillField(height,width);
+	printField(spielfeld,height,width);
+	cout<< "Feld 2 mit Testpunkt P(" << pX << "|" << pY << "):"<<endl;
+	spielfeld= setPoint(15,10,spielfeld,width);
+	printField(spielfeld,height,width);
+
+
+	return 0;
+}
 void printField(int* pField,int pWidth,int pHeight)
 {
 	int x,y;
@@ -44,20 +64,4 @@ int* fillField(int pWidth,int pHeight)
 		}
 	return temp;
 
-}
-int myMain() {
-
-	int width,height;
-	height=17;
-	width=32;
-	int* spielfeld=new int[width*height];
-	cout<< "Feld 1:"<<endl;
-	spielfeld=fillField(height,width);
-	printField(spielfeld,height,width);
-	cout<< "Feld 2 mit Testpunkt P(15|10):"<<endl;
-	spielfeld= setPoint(15,10,spielfeld,width);
-	printField(spielfeld,height,width);
-
-
-	return 0;
 }

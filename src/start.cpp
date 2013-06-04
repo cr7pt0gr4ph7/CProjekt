@@ -27,6 +27,7 @@
 
 #include <stdlib.h>
 #include <iostream>
+#include "../inc/tcp.h"
 using namespace std;
 
 /*!
@@ -41,7 +42,7 @@ int main(int argc, char **argv)
 	cout << "===========================================================" << endl;
 	cout << "=      CProjekt                                           =" << endl;
 	cout << "===========================================================" << endl;
-
+	tcp_main();
 	return 0;
 }
 
