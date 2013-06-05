@@ -6,7 +6,9 @@
  * @brief	Console.cpp
  */
 
+#ifdef _WIN32
 #include <Windows.h>
+#endif
 #include <iostream>
 #include "../inc/Console.h"
 #include "../inc/winlin.h" //fuer Linux! -> winlin.cpp
@@ -41,7 +43,7 @@ int Console::oberflaeche()
 	if ( Eingabe == 1 )
 	{
 		cout << "Spiel" << endl;
-		system( "PAUSE" );
+		newSystem( "PAUSE" );
 	}
 	if ( Eingabe == 2 )
 	{
@@ -70,7 +72,7 @@ int Console::anleitung()
 	cout << "[**]" << endl;
 
 	cout << endl;
-	system( "PAUSE" );
+	newSystem( "PAUSE" );
 	cout << endl;
 
 	cout << "[*] - Der S-Baustein" << endl;
@@ -117,6 +119,11 @@ int Console::anleitung()
 
 void Console::set_console( short breite , short hoehe )
 {
+#ifdef linux
+
+#endif
+
+#ifdef _WIN32
 	hCon = GetStdHandle( STD_OUTPUT_HANDLE );
 	SMALL_RECT size;
 	COORD b_size;
@@ -130,4 +137,5 @@ void Console::set_console( short breite , short hoehe )
 
 	SetConsoleWindowInfo( hCon , true , & size );
 	SetConsoleScreenBufferSize( hCon , b_size );
-}*/
+#endif
+}

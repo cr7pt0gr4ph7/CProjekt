@@ -8,8 +8,11 @@
 
 #ifndef CONSOLE_H_
 #define CONSOLE_H_
-
 #include "Interface.h"
+
+#ifndef HANDLE
+typedef void * HANDLE;
+#endif
 
 class Console : public Interface
 {
