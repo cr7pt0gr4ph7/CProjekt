@@ -1,9 +1,9 @@
-/*!
+/*
  * @file	TileS.h
  *
  * @date	24.05.2013
  * @author	Superuser
- * @brief	Headerdatei f&uuml;r Spielstein S
+ * @brief	TileS.h
  */
 
 #ifndef TILES_H_
@@ -11,20 +11,14 @@
 
 #include "Tile.h"
 
-/**
- * \brief Kindklasse von Tile f&uuml;r den Spielstein S
- */
 class TileS : public Tile
 {
 	public:
-		/*!
-		 * \brief Konstrutor mit Standartwerten.
-		 */
 		TileS();
-		/*!
-		 * \brief Destruktor
-		 */
+		TileS(const unsigned short _posX, const unsigned short _posY);
 		virtual ~TileS();
+	private:
+		virtual Block** createBaseArray();
 };
 
 #endif /* TILES_H_ */

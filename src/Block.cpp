@@ -6,12 +6,19 @@
  * @brief	Block.cpp
  */
 
-#include "../inc/Block.h"
+#include "..\inc\Block.h"
 
-Block::Block()
+Block::Block() :
+		rendered (true)
 {
 	// TODO Auto-generated constructor stub
 
+}
+
+Block::Block(const bool _rendered) :
+		rendered (_rendered)
+{
+	// TODO Auto-generated constructor stub
 }
 
 Block::~Block()
@@ -19,3 +26,6 @@ Block::~Block()
 	// TODO Auto-generated destructor stub
 }
 
+bool Block::isRendered(void) {
+	return rendered;
+}

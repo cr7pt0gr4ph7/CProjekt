@@ -1,9 +1,9 @@
-/*!
+/*
  * @file	TileO.h
  *
  * @date	24.05.2013
  * @author	Superuser
- * @brief	Headerdatei f&uuml;r Spielstein O
+ * @brief	TileO.h
  */
 
 #ifndef TILEO_H_
@@ -11,20 +11,14 @@
 
 #include "Tile.h"
 
-/**
- * \brief Kindklasse von Tile f&uuml;r den Spielstein O
- */
 class TileO : public Tile
 {
 	public:
-		/*!
-		 * \brief Konstrutor mit Standartwerten.
-		 */
 		TileO();
-		/*!
-		 * \brief Destruktor
-		 */
+		TileO(const unsigned short _posX, const unsigned short _posY);
 		virtual ~TileO();
+	private:
+		virtual Block** createBaseArray();
 };
 
 #endif /* TILEO_H_ */
