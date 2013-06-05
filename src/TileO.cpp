@@ -6,7 +6,7 @@
  * @brief	Sourcedatei f&uuml;r Spielstein O
  */
 
-#include "TileO.h"
+#include "../inc/TileO.h"
 
 TileO::TileO() :
 			Tile( "O" , "Ich bin ...." , 2 , 2 )

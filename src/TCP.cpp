@@ -58,11 +58,11 @@ Spielfeld::Spielfeld(int pWidth, int pHeight){
 	setFieldHeight(pHeight);
 	setFieldWidth(pWidth);
 
-	char* spielfeld=new char[width*height];
+	//char* spielfeld=new char[width*height];
 
 	cout<< "leeres Spielfeld:"<<endl;
 
-	spielfeld = fillField(height,width);	//Leeres Spielfeld intiieren
+	//spielfeld = fillField(height,width);	//Leeres Spielfeld intiieren
 }
 
 Spielfeld::~Spielfeld(){

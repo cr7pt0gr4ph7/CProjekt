@@ -9,6 +9,7 @@
 #include <Windows.h>
 #include <iostream>
 #include "../inc/Console.h"
+#include "../inc/winlin.h" //fuer Linux! -> winlin.cpp
 
 using namespace std;
 
@@ -56,7 +57,7 @@ int Console::oberflaeche()
 
 int Console::anleitung()
 {
-	cout << endl << "== Verfügbare Spielsteine ==" << endl << endl;
+	cout << endl << "== Verfuegbare Spielsteine ==" << endl << endl;
 
 	cout << "[* ] - Der L-Baustein" << endl;
 	cout << "[* ]" << endl;
@@ -83,7 +84,7 @@ int Console::anleitung()
 	cout << "[* ]" << endl;
 
 	cout << endl;
-	system( "PAUSE" );
+	newSystem("PAUSE");
 	cout << endl;
 
 	cout << "[ *] - Der T-Baustein" << endl;
@@ -91,7 +92,7 @@ int Console::anleitung()
 	cout << "[ *]" << endl;
 
 	cout << endl;
-	system( "PAUSE" );
+	newSystem("PAUSE");
 	cout << endl;
 
 	cout << "[ *] - Der O-Baustein" << endl;
@@ -99,7 +100,7 @@ int Console::anleitung()
 	cout << "[ *]" << endl;
 
 	cout << endl;
-	system( "PAUSE" );
+	newSystem("PAUSE");
 	cout << endl;
 
 	cout << "[*]  - Der I-Baustein" << endl;
@@ -109,7 +110,7 @@ int Console::anleitung()
 
 	cout << endl;
 
-	system( "PAUSE" );
+	newSystem("PAUSE");
 
 	return 0;
 }
@@ -129,4 +130,4 @@ void Console::set_console( short breite , short hoehe )
 
 	SetConsoleWindowInfo( hCon , true , & size );
 	SetConsoleScreenBufferSize( hCon , b_size );
-}
+}*/

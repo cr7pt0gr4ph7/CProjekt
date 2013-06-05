@@ -49,6 +49,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include "../inc/tcp.h"
+#include "../inc/winlin.h"
 using namespace std;
 
 /*!
@@ -63,7 +64,8 @@ int main(int argc, char **argv)
 	cout << "===========================================================" << endl;
 	cout << "=      CProjekt                                           =" << endl;
 	cout << "===========================================================" << endl;
-	tcp_main();
+	//tcp_main();
+	newSystem("PAUSE");
 	return 0;
 }
 
