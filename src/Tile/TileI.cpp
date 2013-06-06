@@ -6,7 +6,7 @@
  * @brief	TileI.cpp
  */
 
-#include "..\inc\TileI.h"
+#include "TileI.h"
 
 TileI::TileI() :
 		Tile("I", "4 Bloecke in einer Reihe.", 1, 4, createBaseArray())

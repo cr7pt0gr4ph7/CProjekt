@@ -6,7 +6,7 @@
  * @brief	TileL.cpp
  */
 
-#include "..\inc\TileL.h"
+#include "TileL.h"
 
 TileL::TileL() :
 	Tile("L", "4 Bloecke L-foermig angeordnet.", 2, 3, createBaseArray())

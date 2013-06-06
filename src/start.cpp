@@ -48,10 +48,17 @@
 
 #include <stdlib.h>
 #include <iostream>
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>
 #include "../inc/tcp.h"
 #include "../inc/winlin.h"
 
 using namespace std;
+
+/*
+ * Funktion um das Programm zu intialiseren. Gibt bei Fehler eine Zahl != 0 zurück.
+ */
+int init(void);
 
 /*!
  * @brief	Einstiegspunkt f&uuml;r das gesamte Projekt.
@@ -62,6 +69,9 @@ using namespace std;
  */
 int main(int argc, char **argv)
 {
+	if(init()) {
+		// TODO: Errorhandling
+	}
 	cout << "===========================================================" << endl;
 	cout << "=      CProjekt                                           =" << endl;
 	cout << "===========================================================" << endl;
@@ -69,4 +79,11 @@ int main(int argc, char **argv)
 	//tcp_main();
 	return 0;
 }
+
+int init(void) {
+	// Zufallsgenerator initalisieren.
+	srand(time(NULL));
+	return 0;
+}
+
 

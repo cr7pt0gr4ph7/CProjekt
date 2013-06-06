@@ -5,64 +5,67 @@
  *      Author: Superuser
  */
 
-#include "..\inc\Tile.h"
+#include "Tile.h"
+#include <stdlib.h>
 
 using namespace std;
-//!< Einfacher Zugriff auf Funktionen der Standardbibliothek.
-#include <list>							//!< Zur Erstelleung einer einfachern Liste
-list<Block *> listBlock;				//!< Blöcke für die Darstellung
 
-Tile::Tile() :
-		title("KEIN NAME VORHANDEN"), description(
-				"KEINE BESCHREIBUNG VORHANDEN"), posX(0), posY(0), rotation(0), seal(false), height(
-				0), width(0), blockArray() {
 
+
+Tile::Tile(const char *_title, const char* _description, const unsigned short _width, const unsigned short _height,	Block** _blockArray) :
+		title(_title), description(_description), posX(0), posY(0), height(_height), width(_width), blockArray(_blockArray)
+{
+	// Randomisierung der Startrotation und der Spiegelung des Spielsteins.
+	randomize();
 }
 
-Tile::Tile(const char *_title, const char* _description) :
-		title(_title), description(_description), posX(0), posY(0), rotation(0), seal(false), height(
-				0), width(0), blockArray() {
-
-}
-
-Tile::Tile(const char *_title, const char* _description,
-		const unsigned short _width, const unsigned short _height) :
-		title(_title), description(_description), posX(0), posY(0), rotation(0), seal(false), height(
-				_height), width(_width), blockArray(new Block*[width * height]) {
-	for (unsigned short h = 0; h < _height; h++) {
-		for (unsigned short w = 0; w < _width; w++) {
-			listBlock.push_back(new Block());
-		}
-	}
-}
-
-Tile::Tile(const char *_title, const char* _description,
-		const unsigned short _width, const unsigned short _height,
-		Block** _blockArray) :
-		title(_title), description(_description), posX(0), posY(0), rotation(0), seal(false), height(
-				_height), width(_width), blockArray(_blockArray) {
-	for (unsigned short h = 0; h < _height; h++) {
-		for (unsigned short w = 0; w < _width; w++) {
-			listBlock.push_back(new Block());
-		}
-	}
-}
-
-Tile::Tile(const char *_title, const char* _description,
-		const unsigned short _width, const unsigned short _height, const unsigned short _posX, const unsigned short _posY,
-		Block** _blockArray) :
-		title(_title), description(_description), posX(_posX), posY(_posY), rotation(0), seal(false), height(
-				_height), width(_width), blockArray(_blockArray) {
-	for (unsigned short h = 0; h < _height; h++) {
-		for (unsigned short w = 0; w < _width; w++) {
-			listBlock.push_back(new Block());
-		}
-	}
+Tile::Tile(const char *_title, const char* _description, const unsigned short _width, const unsigned short _height, const unsigned short _posX, const unsigned short _posY,	Block** _blockArray) :
+		title(_title), description(_description), posX(_posX), posY(_posY), height(_height), width(_width), blockArray(_blockArray)
+{
+	// Randomisierung der Startrotation und der Spiegelung des Spielsteins.
+	randomize();
 }
 
 Tile::~Tile() {
-	listBlock.erase(listBlock.begin(), listBlock.end());//!< Alle Elemente aus der Liste l&ouml;schen.
-	delete[] blockArray; // TODO: Muss hier vorher jeder einzelne Block gelöscht werden?
+	if(blockArray != nullptr) {
+		delete[] blockArray; // TODO: Muss hier vorher jeder einzelne Block gelöscht werden?
+	}
+}
+
+const char* Tile::getTitle() const
+{
+	return title;
+}
+
+const char* Tile::getDescription() const
+{
+	return title;
+}
+
+const unsigned short Tile::getHeight() const
+{
+	return height;
+}
+
+const unsigned short Tile::getWidth() const
+{
+	return width;
+}
+
+unsigned short Tile::getPosX() const {
+	return posX;
+}
+
+void Tile::setPosX(unsigned short posX) {
+	this->posX = posX;
+}
+
+unsigned short Tile::getPosY() const {
+	return posY;
+}
+
+void Tile::setPosY(unsigned short posY) {
+	this->posY = posY;
 }
 
 /*
@@ -154,5 +157,17 @@ void Tile::move(int dX, int dY) {
 	posX += dX;
 	posY += dY;
 	//TODO: evtl müssen hier noch die Blöcke bewegt werden.
+}
+
+void Tile::randomize(void) {
+	int m = rand() % 4;
+	for (int n = 0; n < m; ++n) {
+		rotatecw();
+	}
+	m = rand() % 2;
+	for (int n = 0; n < m; ++n) {
+		mirror(blockArray, width, height);
+	}
+	return;
 }
 

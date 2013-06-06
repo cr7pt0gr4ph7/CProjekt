@@ -6,7 +6,7 @@
  * @brief	TileT.cpp
  */
 
-#include "..\inc\TileT.h"
+#include "TileT.h"
 #include <iostream>
 
 TileT::TileT() :

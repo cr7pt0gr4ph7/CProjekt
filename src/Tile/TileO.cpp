@@ -6,7 +6,7 @@
  * @brief	TileO.cpp
  */
 
-#include "..\inc\TileO.h"
+#include "TileO.h"
 
 TileO::TileO():
 	Tile("O", "4 Bloecke im Quadrat angeordnet.", 2, 2, createBaseArray())

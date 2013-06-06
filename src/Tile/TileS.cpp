@@ -6,7 +6,7 @@
  * @brief	TileS.cpp
  */
 
-#include "..\inc\TileS.h"
+#include "TileS.h"
 
 TileS::TileS():
 	Tile("S", "4 Bloecke S-foermig angeordnet", 3, 2, createBaseArray())
