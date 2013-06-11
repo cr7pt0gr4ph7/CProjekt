@@ -6,13 +6,13 @@
 // Description : <windows.h> Abhaengigkeiten unter Linux aufgeloest, Ansi-style
 //============================================================================
 
-#ifdef linux
+#ifdef __unix__
 #include <unistd.h>
 #endif
 #ifdef _WIN32
 #include <windows.h>
 #endif
-#include "../inc/winlin.h"
+#include "winlin.h"
 #include <iostream>
 #include <cstdio>
 #include <cstring>
@@ -22,7 +22,7 @@ using namespace std;
 
 void wait(int pM_SECS)
 {
-#ifdef linux
+#ifdef __unix__
     usleep(pM_SECS * 1000);   // usleep arbeitet mit µs!
 #endif
 #ifdef _WIN32
@@ -32,7 +32,7 @@ void wait(int pM_SECS)
 
 void newSystem(const char* pStr){
 
-#ifdef linux
+#ifdef __unix__
 
 	if(strcmp(pStr,"PAUSE") != 0 || strcmp(pStr,"pause") != 0) {
 		cout << "Drücken Sie eine beliebige Taste . . ." << endl;

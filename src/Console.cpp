@@ -10,8 +10,8 @@
 #include <Windows.h>
 #endif
 #include <iostream>
-#include "../inc/Console.h"
-#include "../inc/winlin.h" //fuer Linux! -> winlin.cpp
+#include "Console.h"
+#include "winlin.h" //fuer Linux! -> winlin.cpp
 
 using namespace std;
 
@@ -119,7 +119,7 @@ int Console::anleitung()
 
 void Console::set_console( short breite , short hoehe )
 {
-#ifdef linux
+#ifdef __unix__
 
 #endif
 

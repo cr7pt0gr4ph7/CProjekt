@@ -50,13 +50,13 @@
 #include <iostream>
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>
-#include "../inc/tcp.h"
-#include "../inc/winlin.h"
+#include "spielfeld.h"
+#include "winlin.h"
 
 using namespace std;
 
 /*
- * Funktion um das Programm zu intialiseren. Gibt bei Fehler eine Zahl != 0 zurück.
+ * Funktion um das Programm zu intialiseren. Gibt bei Fehler eine Zahl != 0 zurï¿½ck.
  */
 int init(void);
 

@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : TCP.cpp
+// Name        : spielfeld.cpp
 // Author      : Denis Gauss, Maurice Angermann
 // Version     : 1.0.0
 // Copyright   : 2013, DHBW Karlsruhe
@@ -7,7 +7,7 @@
 //============================================================================
 
 #include <iostream>
-#include "../inc/tcp.h"
+#include "spielfeld.h"
 using namespace std;
 
 void Spielfeld::setFieldWidth(int pWidth)

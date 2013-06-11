@@ -28,7 +28,7 @@ Tile::Tile(const char *_title, const char* _description, const unsigned short _w
 
 Tile::~Tile() {
 	if(blockArray != nullptr) {
-		delete[] blockArray; // TODO: Muss hier vorher jeder einzelne Block gelöscht werden?
+		delete[] blockArray; // TODO: Muss hier vorher jeder einzelne Block gelï¿½scht werden?
 	}
 }
 
@@ -80,7 +80,7 @@ void Tile::rotatecw() {
 	height = temp;
 	//newArray spiegeln
 	mirror(blockArray, width, height);
-	//die Matrix sollte nicht ausgerichtet werden müssen, vorrausgesetzt width und height der alten Matrix waren minimal gesetzt, und
+	//die Matrix sollte nicht ausgerichtet werden mï¿½ssen, vorrausgesetzt width und height der alten Matrix waren minimal gesetzt, und
 	// der Inhalt war bereits ausgerichtet
 	return;
 }
@@ -156,7 +156,7 @@ void Tile::moveDown(void) {
 void Tile::move(int dX, int dY) {
 	posX += dX;
 	posY += dY;
-	//TODO: evtl müssen hier noch die Blöcke bewegt werden.
+	//TODO: evtl mï¿½ssen hier noch die Blï¿½cke bewegt werden.
 }
 
 void Tile::randomize(void) {
