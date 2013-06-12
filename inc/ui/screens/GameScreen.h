@@ -10,7 +10,8 @@
 
 #include "ui/screens/Interface.h"
 
-class GameScreen : public Interface {
+class GameScreen: public Interface
+{
 public:
 	GameScreen();
 	virtual ~GameScreen();
