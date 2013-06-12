@@ -52,7 +52,7 @@
 #include <time.h>
 #include "Spielfeld.h"
 #include "winlin.h"
-#include "Startscr.h"
+#include "ui/screens/Startscr.h"
 #include "Output.h"
 
 using namespace std;

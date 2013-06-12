@@ -10,7 +10,7 @@
 #include <Windows.h>
 #endif
 #include <iostream>
-#include "Startscr.h"
+#include "UI/Screens/Startscr.h"
 #include "winlin.h" //fuer Linux! -> winlin.cpp
 #include <cstdio>
 
