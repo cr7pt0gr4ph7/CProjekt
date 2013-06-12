@@ -54,7 +54,7 @@
 #include "winlin.h"
 #include "ui/screens/Startscr.h"
 #include "ui/screens/GameScreen.h"
-#include "ConsoleOutput.h"
+#include "Output.h"
 
 using namespace std;
 

@@ -1,5 +1,5 @@
 /*
- * ConsoleOutput.h
+ * Output.h
  *
  *  Created on: 11.06.2013
  *      Author: mo
@@ -10,12 +10,12 @@
 
 #include "Spielfeld.h"
 
-class ConsoleOutput {
+class Output {
 
 public:
-	ConsoleOutput();
+	Output();
 	void render(Spielfeld* pSpielfeld);
-	~ConsoleOutput();
+	~Output();
 };
 
 #endif /* OUTPUT_H_ */
