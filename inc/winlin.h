@@ -12,5 +12,7 @@
 void wait_ms(int pMS); //Sleep();
 void newSystem(const char* pStr); //system();
 
+void wait_for_keypress(); //!< system("PAUSE") (Win32) bzw. eigene Implementierung (Linux)
+void clear_console_window(); //!< system("CLS") (Win32) bzw. system("CLEAR") (Linux)
 
 #endif
