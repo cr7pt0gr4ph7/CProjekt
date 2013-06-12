@@ -53,7 +53,7 @@
 #include "Spielfeld.h"
 #include "winlin.h"
 #include "ui/screens/Startscr.h"
-#include "Output.h"
+#include "ConsoleOutput.h"
 
 using namespace std;
 
