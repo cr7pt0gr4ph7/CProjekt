@@ -13,11 +13,11 @@ class Block
 {
 	public:
 		Block();
-		Block(const bool _rendered);
-		bool isRendered();
+		Block(const bool _occupied);
+		bool isOccupied();
 		virtual ~Block();
 	private:
-		bool rendered;
+		bool occupied;
 };
 
 #endif /* BLOCK_H_ */

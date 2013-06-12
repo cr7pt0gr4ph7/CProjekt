@@ -9,14 +9,14 @@
 #include "Block.h"
 
 Block::Block() :
-		rendered (true)
+		occupied (true)
 {
 	// TODO Auto-generated constructor stub
 
 }
 
-Block::Block(const bool _rendered) :
-		rendered (_rendered)
+Block::Block(const bool _occupied) :
+		occupied (_occupied)
 {
 	// TODO Auto-generated constructor stub
 }
@@ -26,6 +26,6 @@ Block::~Block()
 	// TODO Auto-generated destructor stub
 }
 
-bool Block::isRendered(void) {
-	return rendered;
+bool Block::isOccupied(void) {
+	return occupied;
 }
