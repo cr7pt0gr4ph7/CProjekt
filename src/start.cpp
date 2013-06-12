@@ -86,9 +86,9 @@ int main(int argc, char* argv[])
 
 	if(startscreen->startscrPrintout())
 	{
-		newSystem("CLS");
+		clear_console_window();
 		cout << "HIER WIRD IN KUERZE DAS SPIEL GESTARTET" << endl;
-		newSystem("PAUSE");
+		wait_for_keypress();
 	}
 
 	return 0;

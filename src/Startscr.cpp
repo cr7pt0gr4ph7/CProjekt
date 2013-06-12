@@ -33,7 +33,7 @@ int Startscr::startscrPrintout()
 
 	setWindow( 50 , 35 );
 
-	newSystem("CLS");
+	clear_console_window();
 	cout << "--------------------------------------------------" << endl;
 	cout << "---------------------TETRIS-----------------------" << endl;
 	cout << "--------------------------------------------------" << endl;
@@ -61,7 +61,7 @@ int Startscr::startscrPrintout()
 
 int Startscr::instructionsPrintout()
 {
-	newSystem("CLS");
+	clear_console_window();
 	cout << endl << "== Verfuegbare Spielsteine ==" << endl << endl;
 
 	cout << "[X ] - Der L-Baustein" << endl;
@@ -106,7 +106,7 @@ int Startscr::instructionsPrintout()
 
 	cout << endl;
 
-	newSystem("PAUSE");
+	wait_for_keypress();
 
 	return 0;
 }

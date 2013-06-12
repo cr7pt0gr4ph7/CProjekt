@@ -19,6 +19,7 @@ int Spielfeld::getWidth()
 {
 	return width;
 }
+
 int Spielfeld::getHeight()
 {
 	return height;
