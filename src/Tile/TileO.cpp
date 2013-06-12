@@ -9,12 +9,12 @@
 #include "TileO.h"
 
 TileO::TileO():
-	Tile("O", "4 Bloecke im Quadrat angeordnet.", 2, 2, createBaseArray())
+	Tile("O", 2, 2, createBaseArray())
 {
 }
 
 TileO::TileO(const unsigned short _posX, const unsigned short _posY) :
-		Tile("O", "4 Bloecke im Quadrat angeordnet.", 2, 2, _posX, _posY, createBaseArray())
+		Tile("O", 2, 2, _posX, _posY, createBaseArray())
 {
 }
 

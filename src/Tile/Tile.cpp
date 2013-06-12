@@ -12,15 +12,15 @@ using namespace std;
 
 
 
-Tile::Tile(const char *_title, const char* _description, const unsigned short _width, const unsigned short _height,	Block** _blockArray) :
-		title(_title), description(_description), posX(0), posY(0), height(_height), width(_width), blockArray(_blockArray)
+Tile::Tile(const char *_title, const unsigned short _width, const unsigned short _height,	Block** _blockArray) :
+		title(_title), posX(0), posY(0), height(_height), width(_width), blockArray(_blockArray)
 {
 	// Randomisierung der Startrotation und der Spiegelung des Spielsteins.
 	randomize();
 }
 
-Tile::Tile(const char *_title, const char* _description, const unsigned short _width, const unsigned short _height, const unsigned short _posX, const unsigned short _posY,	Block** _blockArray) :
-		title(_title), description(_description), posX(_posX), posY(_posY), height(_height), width(_width), blockArray(_blockArray)
+Tile::Tile(const char *_title, const unsigned short _width, const unsigned short _height, const unsigned short _posX, const unsigned short _posY,	Block** _blockArray) :
+		title(_title), posX(_posX), posY(_posY), height(_height), width(_width), blockArray(_blockArray)
 {
 	// Randomisierung der Startrotation und der Spiegelung des Spielsteins.
 	randomize();
@@ -33,11 +33,6 @@ Tile::~Tile() {
 }
 
 const char* Tile::getTitle() const
-{
-	return title;
-}
-
-const char* Tile::getDescription() const
 {
 	return title;
 }
@@ -73,13 +68,13 @@ void Tile::setPosY(unsigned short posY) {
  */
 void Tile::rotatecw() {
 	//blockArray transponieren
-	transpose(blockArray, width, height);
+	transpose();
 	//width und height vertauschen
 	int temp = width;
 	width = height;
 	height = temp;
 	//newArray spiegeln
-	mirror(blockArray, width, height);
+	mirror();
 	//die Matrix sollte nicht ausgerichtet werden m�ssen, vorrausgesetzt width und height der alten Matrix waren minimal gesetzt, und
 	// der Inhalt war bereits ausgerichtet
 	return;
@@ -90,9 +85,9 @@ void Tile::rotatecw() {
  */
 void Tile::rotateccw() {
 	//blockArray spiegeln
-	mirror(blockArray, width, height);
+	mirror();
 	//bloackArray transponieren
-	transpose(blockArray, width, height);
+	transpose();
 	//width und height vertauschen
 	int temp = width;
 	width = height;
@@ -102,13 +97,13 @@ void Tile::rotateccw() {
 }
 
 /*
- * Transponiert ein 2D Block Array der Form Block[width * height]
+ * Transponiert das 2D Block Array der Form Block[width * height]
  */
-void Tile::transpose(Block** oldArray, int width, int height) {
+void Tile::transpose() {
 	Block** newArray = new Block*[height * width];
 	for (int x = 0; x < width; ++x) {
 		for (int y = 0; y < height; ++y) {
-			newArray[y * width + x] = oldArray[x * height + y]; //dafuq am i doin'
+			newArray[y * width + x] = blockArray[x * height + y]; //dafuq am i doin'
 		}
 	}
 	blockArray = newArray;
@@ -116,13 +111,13 @@ void Tile::transpose(Block** oldArray, int width, int height) {
 }
 
 /*
- * Spiegelt ein 2D Block Array der Form Block[width * height] vertikal.
+ * Spiegelt das 2D Block Array der Form Block[width * height] vertikal.
  */
-void Tile::mirror(Block** oldArray, int width, int height) {
+void Tile::mirror() {
 	Block** newArray = new Block*[width * height];
 	for (int y = 0; y < height; ++y) {
 		for (int x = 0; x < width; ++x) {
-			newArray[x * height + y] = oldArray[(width - x - 1) * height + y]; //<3 2D Arrays.
+			newArray[x * height + y] = blockArray[(width - x - 1) * height + y]; //<3 2D Arrays.
 		}
 	}
 	blockArray = newArray;
@@ -166,7 +161,7 @@ void Tile::randomize(void) {
 	}
 	m = rand() % 2;
 	for (int n = 0; n < m; ++n) {
-		mirror(blockArray, width, height);
+		mirror();
 	}
 	return;
 }
