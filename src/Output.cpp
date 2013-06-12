@@ -18,3 +18,7 @@ Output::~Output()
 	// TODO Auto-generated destructor stub
 }
 
+void Output::render(Spielfeld* pSpielfeld)
+{
+	// TODO Spielfeld ausgeben
+}
