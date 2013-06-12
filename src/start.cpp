@@ -58,9 +58,10 @@
 using namespace std;
 
 /*
- * Funktion um das Programm zu intialiseren. Gibt bei Fehler eine Zahl != 0 zurueck.
+ * Funktion um das Programm zu intialiseren.
+ * Bei Fehlern wird eine Exception geworfen.
  */
-int init(void);
+void init(void);
 
 /*!
  * @brief	Einstiegspunkt fuer das gesamte Projekt.
@@ -71,13 +72,12 @@ int init(void);
  */
 int main(int argc, char* argv[])
 {
+	init();
+
 	Startscr* startscreen = new Startscr();
 	//Spielfeld* spiel = new Spielfeld(20,25);
 	//Output* renderman = new Output();
 
-	if(init()) {
-		// TODO: Errorhandling
-	}
 	cout << "===========================================================" << endl;
 	cout << "=      CProjekt                                           =" << endl;
 	cout << "===========================================================" << endl;
@@ -94,10 +94,10 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
-int init(void) {
+void init(void)
+{
 	// Zufallsgenerator initalisieren.
 	srand(time(NULL));
-	return 0;
 }
 
 
