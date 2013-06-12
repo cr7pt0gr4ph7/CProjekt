@@ -15,14 +15,6 @@ Spielfeld::Spielfeld(int pWidth, int pHeight) : width(pWidth), height(pHeight), 
     clearSpielfeld();	//Leeres Spielfeld
 }
 
-void Spielfeld::setWidth(int pWidth)
-{
-	width = pWidth;
-}
-void Spielfeld::setHeight(int pHeight)
-{
-	height = pHeight;
-}
 int Spielfeld::getWidth()
 {
 	return width;

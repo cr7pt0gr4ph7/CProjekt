@@ -11,9 +11,7 @@ private:
 	char *info;
 public:
 	Spielfeld(int pWidth, int pHeight);
-	void setWidth(int pWidth);
 	int getWidth();
-	void setHeight(int pHeight);
 	int getHeight();
 	void clearSpielfeld(); //Spielfeld leeren
 	void printSpielfeld(); //Spielfeld ausgeben
