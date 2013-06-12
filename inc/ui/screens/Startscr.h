@@ -8,7 +8,7 @@
 
 #ifndef STARTSCR_H_
 #define STARTSCR_H_
-#include "Interface.h"
+#include "ui/screens/Interface.h"
 
 #ifndef HANDLE
 typedef void * HANDLE;
