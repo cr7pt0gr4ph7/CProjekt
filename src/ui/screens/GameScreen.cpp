@@ -11,17 +11,36 @@
 
 using namespace std;
 
-GameScreen::GameScreen() {
-	// TODO Auto-generated constructor stub
-
+GameScreen::GameScreen() :
+		renderer(new Output()), spielfeld(
+				new Spielfeld(DEFAULT_BOARD_WIDTH, DEFAULT_BOARD_HEIGHT)), frameDuration_ms(
+				DEFAULT_FRAME_DURATION_MS)
+{
 }
 
-GameScreen::~GameScreen() {
+GameScreen::~GameScreen()
+{
 	// TODO Auto-generated destructor stub
 }
 
-void GameScreen::run(void) {
-	cout << "GameScreen wurde aufgerufen." << endl;
+void GameScreen::doLogic(void)
+{
+	// TODO Spiellogik implementieren
+}
+
+void GameScreen::run(void)
+{
+	clear_console_window();
+
+	while (true)
+	{
+		doLogic();
+
+		renderer->render(spielfeld);
+
+		// TODO Die fuer die Spiellogik und das Rendern benoetigte Zeit abziehen
+		wait_ms(frameDuration_ms);
+	}
 
 	wait_for_keypress();
 }
