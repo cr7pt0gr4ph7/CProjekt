@@ -58,7 +58,7 @@
 using namespace std;
 
 /*
- * Funktion um das Programm zu intialiseren.
+ * Funktion um das Programm zu intialisieren.
  * Bei Fehlern wird eine Exception geworfen.
  */
 void init(void);
