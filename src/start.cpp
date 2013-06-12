@@ -50,33 +50,47 @@
 #include <iostream>
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>
-#include "spielfeld.h"
+#include "Spielfeld.h"
 #include "winlin.h"
+#include "Startscr.h"
+#include "Output.h"
 
 using namespace std;
 
 /*
- * Funktion um das Programm zu intialiseren. Gibt bei Fehler eine Zahl != 0 zur�ck.
+ * Funktion um das Programm zu intialiseren. Gibt bei Fehler eine Zahl != 0 zurueck.
  */
 int init(void);
 
 /*!
- * @brief	Einstiegspunkt f&uuml;r das gesamte Projekt.
- * Hier werden die ersten Schritte ausgef&uuml;hrt und erwecken somit das Projekt zum Leben.
+ * @brief	Einstiegspunkt fuer das gesamte Projekt.
+ * Hier werden die ersten Schritte ausgefuehrt und erwecken somit das Projekt zum Leben.
  *
  * @param argc	Anzahl der Aufrufparameter
  * @param argv	Pointer auf Aufrufparameter
  */
-int main(int argc, char **argv)
+int main(int argc, char* argv[])
 {
+	Startscr* startscreen = new Startscr();
+	//Spielfeld* spiel = new Spielfeld(20,25);
+	//Output* renderman = new Output();
+
 	if(init()) {
 		// TODO: Errorhandling
 	}
 	cout << "===========================================================" << endl;
 	cout << "=      CProjekt                                           =" << endl;
 	cout << "===========================================================" << endl;
-	newSystem("PAUSE");
-	//tcp_main();
+
+	wait_ms(1000);
+
+	if(startscreen->startscrPrintout())
+	{
+		newSystem("CLS");
+		cout << "HIER WIRD IN KUERZE DAS SPIEL GESTARTET" << endl;
+		newSystem("PAUSE");
+	}
+
 	return 0;
 }
 

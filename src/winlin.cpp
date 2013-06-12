@@ -20,13 +20,13 @@
 
 using namespace std;
 
-void wait(int pM_SECS)
+void wait_ms(int pMS)
 {
 #ifdef __unix__
-    usleep(pM_SECS * 1000);   // usleep arbeitet mit µs!
+    usleep(pMS * 1000);   // usleep arbeitet mit µs!
 #endif
 #ifdef _WIN32
-    Sleep(pM_SECS);
+    Sleep(pMS);
 #endif
 }
 
@@ -34,12 +34,14 @@ void newSystem(const char* pStr){
 
 #ifdef __unix__
 
-	if(strcmp(pStr,"PAUSE") != 0 || strcmp(pStr,"pause") != 0) {
+	if(strcmp(pStr,"PAUSE") == 0 || strcmp(pStr,"pause") == 0)
+	{
 		cout << "Drücken Sie eine beliebige Taste . . ." << endl;
 		getchar();
 	}
-	if(strcmp(pStr,"CLS") != 0 || strcmp(pStr,"cls") != 0){
-		//system("clear");
+	if(strcmp(pStr,"CLS") == 0 || strcmp(pStr,"cls") == 0)
+	{
+		system("clear");
 	}
 #endif
 #ifdef _WIN32

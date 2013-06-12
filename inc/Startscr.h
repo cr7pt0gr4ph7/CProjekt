@@ -6,15 +6,15 @@
  * @brief	Console.h
  */
 
-#ifndef CONSOLE_H_
-#define CONSOLE_H_
+#ifndef STARTSCR_H_
+#define STARTSCR_H_
 #include "Interface.h"
 
 #ifndef HANDLE
 typedef void * HANDLE;
 #endif
 
-class Console : public Interface
+class Startscr : public Interface
 {
 	private:
 		HANDLE hCon;
@@ -25,12 +25,12 @@ class Console : public Interface
 		}
 
 	public:
-		Console();
-		virtual ~Console();
+		Startscr();
+		virtual ~Startscr();
 
-		int oberflaeche();
-		int anleitung();
-		void set_console( short breite , short hoehe );
+		int startscrPrintout();
+		int instructionsPrintout();
+		void setWindow( short breite , short hoehe );
 };
 
-#endif /* CONSOLE_H_ */
+#endif /* STARTSCR_H_ */

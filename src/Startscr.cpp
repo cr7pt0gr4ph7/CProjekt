@@ -10,45 +10,47 @@
 #include <Windows.h>
 #endif
 #include <iostream>
-#include "Console.h"
+#include "Startscr.h"
 #include "winlin.h" //fuer Linux! -> winlin.cpp
+#include <cstdio>
 
 using namespace std;
 
-Console::Console()
+Startscr::Startscr()
 {
 	// TODO Auto-generated constructor stub
 
 }
 
-Console::~Console()
+Startscr::~Startscr()
 {
 	// TODO Auto-generated destructor stub
 }
 
-int Console::oberflaeche()
+int Startscr::startscrPrintout()
 {
 	int Eingabe = 0;
 
-	set_console( 50 , 35 );
+	setWindow( 50 , 35 );
 
+	newSystem("CLS");
 	cout << "--------------------------------------------------" << endl;
 	cout << "---------------------TETRIS-----------------------" << endl;
 	cout << "--------------------------------------------------" << endl;
-	cout << "\n(1) Starten" << endl;
+	cout << "(1) Starten" << endl;
 	cout << "(2) Anleitung" << endl;
 	cout << "(3) Beenden" << endl;
-	cin >> Eingabe;
-
+	cout << "Bitte waehlen: "; cin >> Eingabe;
+	while(getchar()!='\n');
 	if ( Eingabe == 1 )
 	{
-		cout << "Spiel" << endl;
-		newSystem( "PAUSE" );
+		wait_ms(500);
+		return 1;
 	}
 	if ( Eingabe == 2 )
 	{
 		cout << "Anleitung" << endl;
-		this->anleitung( );
+		instructionsPrintout( );
 	}
 	if ( Eingabe == 3 )
 		return 0;
@@ -57,52 +59,44 @@ int Console::oberflaeche()
 	return 0;
 }
 
-int Console::anleitung()
+int Startscr::instructionsPrintout()
 {
+	newSystem("CLS");
 	cout << endl << "== Verfuegbare Spielsteine ==" << endl << endl;
 
-	cout << "[* ] - Der L-Baustein" << endl;
-	cout << "[* ]" << endl;
-	cout << "[**]" << endl;
+	cout << "[X ] - Der L-Baustein" << endl;
+	cout << "[X ]" << endl;
+	cout << "[XX]" << endl;
 
 	cout << endl;
 
-	cout << "[ *] - Der J-Baustein" << endl;
-	cout << "[ *]" << endl;
-	cout << "[**]" << endl;
-
-	cout << endl;
-	newSystem( "PAUSE" );
-	cout << endl;
-
-	cout << "[*] - Der S-Baustein" << endl;
-	cout << "[**]" << endl;
-	cout << "[ *]" << endl;
+	cout << "[ X] - Der J-Baustein" << endl;
+	cout << "[ X]" << endl;
+	cout << "[XX]" << endl;
 
 	cout << endl;
 
-	cout << "[ *] - Der Z-Baustein" << endl;
-	cout << "[**]" << endl;
-	cout << "[* ]" << endl;
+	cout << "[X ] - Der S-Baustein" << endl;
+	cout << "[XX]" << endl;
+	cout << "[ X]" << endl;
 
 	cout << endl;
-	newSystem("PAUSE");
-	cout << endl;
 
-	cout << "[ *] - Der T-Baustein" << endl;
-	cout << "[**]" << endl;
-	cout << "[ *]" << endl;
+	cout << "[ X] - Der Z-Baustein" << endl;
+	cout << "[XX]" << endl;
+	cout << "[X ]" << endl;
 
 	cout << endl;
-	newSystem("PAUSE");
-	cout << endl;
 
-	cout << "[ *] - Der O-Baustein" << endl;
-	cout << "[**]" << endl;
-	cout << "[ *]" << endl;
+	cout << "[ X] - Der T-Baustein" << endl;
+	cout << "[XX]" << endl;
+	cout << "[ X]" << endl;
 
 	cout << endl;
-	newSystem("PAUSE");
+
+	cout << "[XX] - Der O-Baustein" << endl;
+	cout << "[XX]" << endl;
+
 	cout << endl;
 
 	cout << "[*]  - Der I-Baustein" << endl;
@@ -117,7 +111,7 @@ int Console::anleitung()
 	return 0;
 }
 
-void Console::set_console( short breite , short hoehe )
+void Startscr::setWindow( short pWidth, short pHeight )
 {
 #ifdef __unix__
 
@@ -130,10 +124,10 @@ void Console::set_console( short breite , short hoehe )
 
 	size.Left = 0;
 	size.Top = 0;
-	size.Right = breite;
-	size.Bottom = hoehe;
-	b_size.X = breite + 1;
-	b_size.Y = hoehe + 1;
+	size.Right = pWidth;
+	size.Bottom = pHeight;
+	b_size.X = pWidth + 1;
+	b_size.Y = pHeight + 1;
 
 	SetConsoleWindowInfo( hCon , true , & size );
 	SetConsoleScreenBufferSize( hCon , b_size );
