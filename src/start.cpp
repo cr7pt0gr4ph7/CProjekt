@@ -53,6 +53,7 @@
 #include "Spielfeld.h"
 #include "winlin.h"
 #include "ui/screens/Startscr.h"
+#include "ui/screens/GameScreen.h"
 #include "ConsoleOutput.h"
 
 using namespace std;
@@ -86,9 +87,11 @@ int main(int argc, char* argv[])
 
 	if(startscreen->startscrPrintout())
 	{
-		clear_console_window();
-		cout << "HIER WIRD IN KUERZE DAS SPIEL GESTARTET" << endl;
-		wait_for_keypress();
+		// Spielbildschirm initialisieren...
+		GameScreen gameScreen;
+
+		// ... und anzeigen:
+		gameScreen.run();
 	}
 
 	return 0;

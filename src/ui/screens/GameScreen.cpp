@@ -6,6 +6,7 @@
  */
 
 #include <iostream>
+#include "winlin.h"
 #include "ui/screens/GameScreen.h"
 
 using namespace std;
@@ -21,5 +22,7 @@ GameScreen::~GameScreen() {
 
 void GameScreen::run(void) {
 	cout << "GameScreen wurde aufgerufen." << endl;
+
+	wait_for_keypress();
 }
 
