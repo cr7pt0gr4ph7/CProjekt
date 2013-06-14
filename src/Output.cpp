@@ -9,7 +9,6 @@
 
 Output::Output()
 {
-
 	// TODO Auto-generated constructor stub
 }
 
@@ -18,7 +17,9 @@ Output::~Output()
 	// TODO Auto-generated destructor stub
 }
 
-void Output::render(Spielfeld* pSpielfeld)
+void Output::render(GameState* pGameState)
 {
 	// TODO Spielfeld ausgeben
+	// TODO Aktuellen Stein ausgeben
+	// TODO Punktzahl ausgeben
 }

@@ -12,9 +12,7 @@
 using namespace std;
 
 GameScreen::GameScreen() :
-		renderer(new Output()), spielfeld(
-				new Spielfeld(DEFAULT_BOARD_WIDTH, DEFAULT_BOARD_HEIGHT)), frameDuration_ms(
-				DEFAULT_FRAME_DURATION_MS)
+		gameState(new GameState()), renderer(new Output())
 {
 }
 
@@ -25,7 +23,7 @@ GameScreen::~GameScreen()
 
 void GameScreen::doLogic(void)
 {
-	// TODO Spiellogik implementieren
+	// TODO Spiellogik implementieren bzw. in eigene Klasse auslagern
 }
 
 void GameScreen::run(void)
@@ -36,10 +34,10 @@ void GameScreen::run(void)
 	{
 		doLogic();
 
-		renderer->render(spielfeld);
+		renderer->render(gameState);
 
 		// TODO Die fuer die Spiellogik und das Rendern benoetigte Zeit abziehen
-		wait_ms(frameDuration_ms);
+		wait_ms (gameState->getFrameDuration());
 	}
 
 	wait_for_keypress();

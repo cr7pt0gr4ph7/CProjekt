@@ -8,13 +8,13 @@
 #ifndef OUTPUT_H_
 #define OUTPUT_H_
 
-#include "Spielfeld.h"
+#include "logic/GameState.h"
 
 class Output {
 
 public:
 	Output();
-	void render(Spielfeld* pSpielfeld);
+	void render(GameState* pGameState);
 	~Output();
 };
 
