@@ -38,8 +38,9 @@ void GameScreen::run(void)
 
 		// TODO Die fuer die Spiellogik und das Rendern benoetigte Zeit abziehen
 		wait_ms (gameState->getFrameDuration());
+		//if(Kollision in oberster Reihe) break;
 	}
-
+	//Game Over
 	wait_for_keypress();
 }
 
