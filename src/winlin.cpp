@@ -66,7 +66,7 @@ void clear_console_window(void)
 {
 #ifdef __unix__
 	// UNIX-Systeme
-	system("CLEAR");
+	system("clear");
 #elif _WIN32
 	// Windows-Systeme
 	system("CLS");
