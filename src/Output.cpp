@@ -6,6 +6,7 @@
  */
 
 #include "Output.h"
+#include "winlin.h"
 
 Output::Output()
 {
@@ -20,6 +21,8 @@ Output::~Output()
 void Output::render(GameState* pGameState)
 {
 	// TODO Spielfeld ausgeben
+	clear_console_window();
+	pGameState->getSpielfeld()->printSpielfeldInfo();
 	// TODO Aktuellen Stein ausgeben
 	// TODO Punktzahl ausgeben
 }
