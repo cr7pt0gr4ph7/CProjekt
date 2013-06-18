@@ -16,6 +16,9 @@ public:
 	Output();
 	void render(GameState* pGameState);
 	~Output();
+	void printGame(GameState* pGameState);
+	void setNextTile(GameState* pGameState);
+	void setScore(GameState* pGameState);
 };
 
 #endif /* OUTPUT_H_ */

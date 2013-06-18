@@ -111,21 +111,10 @@ void Spielfeld::addTextToInfo(const char* pStr, int pX, int pY)
 	return;
 }
 
-void Spielfeld::printSpielfeldInfo()
+int Spielfeld::getnextTile()
 {
-	addInfoToSpielfeld();
-
-	for(int y=0;y<height;y++)
-	{
-		for(int x=0 ; x<(infoWidth+width) ; x++)
-		{
-			cout<< spielfeldinfo[x*height+y];
-		}
-		cout<<endl;
-	}
-	return;
+	return nextTile;
 }
-
 
 Spielfeld::~Spielfeld()
 {
