@@ -42,8 +42,8 @@ void GameScreen::doLogic(void)
 	}
 
 	//Spielstein immer eins nach unten
-	gameState->getSpielfeld()->getActiveTile()->moveDown();*/
-	renderer->moveDown();
+	*/
+	gameState->getSpielfeld()->getActiveTile()->moveDown();
 }
 
 void GameScreen::run(void)

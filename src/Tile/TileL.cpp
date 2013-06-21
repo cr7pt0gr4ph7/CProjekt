@@ -23,20 +23,20 @@ TileL::~TileL()
 
 }
 
-// erzeugt eine Matrix der Höhe 3 und Breite 2 die komplett mit der Basisform des Steins befuellt ist
-Block** TileL::createBaseArray() {
+// erzeugt eine Matrix der Hï¿½he 3 und Breite 2 die komplett mit der Basisform des Steins befuellt ist
+char* TileL::createBaseArray() {
 	width = 2;
 	height = 3;
-	Block** result = new Block*[width * height];
+	char* result = new char[width * height];
 	// (0|0) bis (1|0)
-	result[0*height+0] = new Block(true);
-	result[1*height+0] = new Block(false);
+	result[0*height+0] = 'X';
+	result[1*height+0] = ' ';
 	// (0|1) bis (1|1)
-	result[0*height+1] = new Block(true);
-	result[1*height+1] = new Block(false);
+	result[0*height+1] = 'X';
+	result[1*height+1] = ' ';
 	// (0|2) bis (1|2)
-	result[0*height+2] = new Block(true);
-	result[1*height+2] = new Block(true);
+	result[0*height+2] = 'X';
+	result[1*height+2] = ' ';
 
 	return result;
 }

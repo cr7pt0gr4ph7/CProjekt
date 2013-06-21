@@ -14,13 +14,7 @@ class Output {
 private:
 	GameState* game;
 
-	char* stein;
-	int posX;
-	int posY;
-
 public:
-	void moveDown();
-
 	Output(GameState* pGameState);
 	void render();
 	~Output();

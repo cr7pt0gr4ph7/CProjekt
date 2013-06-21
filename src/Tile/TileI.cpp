@@ -23,13 +23,13 @@ TileI::~TileI()
 }
 
 
-// erzeugt eine Matrix der Höhe 4 und Breite 1 die komplett mit der Basisform des Steins befuellt ist
-Block** TileI::createBaseArray() {
+// erzeugt eine Matrix der Hï¿½he 4 und Breite 1 die komplett mit der Basisform des Steins befuellt ist
+char* TileI::createBaseArray() {
 	unsigned short width = 1;
 	unsigned short height = 4;
-	Block** result = new Block*[width * height];
+	char* result = new char[width * height];
 	for (int y = 0; y < height; ++y) {
-		result[0*height+y] = new Block(true);
+		result[0*height+y] = 'X';
 	}
 	return result;
 }

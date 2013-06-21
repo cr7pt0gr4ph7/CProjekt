@@ -29,6 +29,7 @@ Spielfeld::Spielfeld(int pWidth, int pHeight) :
     clearSpielfeld();	//Leeres Spielfeld
     clearInfo(); 		//Leere Info
     initInfo();			//Initialisiere Info
+    initTiles();
 }
 
 int Spielfeld::getWidth()
@@ -169,19 +170,19 @@ Tile* Spielfeld::randomTile()
 	switch(rand_)
 	{
 	case 0:
-		randTile = new TileI();
+		randTile = new TileI(5,1);
 		break;
 	case 1:
-		randTile = new TileL();
+		randTile = new TileL(5,1);
 		break;
 	case 2:
-		randTile = new TileO();
+		randTile = new TileO(5,1);
 		break;
 	case 3:
-		randTile = new TileS();
+		randTile = new TileS(5,1);
 		break;
 	case 4:
-		randTile = new TileT();
+		randTile = new TileT(5,1);
 		break;
 	}
 	return randTile;

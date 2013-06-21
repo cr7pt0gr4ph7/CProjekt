@@ -23,17 +23,17 @@ TileO::~TileO()
 
 }
 
-// erzeugt eine Matrix der Höhe 2 und Breite 2 die komplett mit der Basisform des Steins befuellt ist
-Block** TileO::createBaseArray() {
+// erzeugt eine Matrix der Hï¿½he 2 und Breite 2 die komplett mit der Basisform des Steins befuellt ist
+char* TileO::createBaseArray() {
 	width = 2;
 	height = 2;
-	Block** result = new Block*[width * height];
+	char* result = new char[width * height];
 	// (0|0) bis (1|0)
-	result[0*height+0] = new Block(true);
-	result[1*height+0] = new Block(true);
+	result[0*height+0] = 'X';
+	result[1*height+0] = 'X';
 	// (0|1) bis (1|1)
-	result[0*height+1] = new Block(true);
-	result[1*height+1] = new Block(true);
+	result[0*height+1] = 'X';
+	result[1*height+1] = 'X';
 
 	return result;
 }

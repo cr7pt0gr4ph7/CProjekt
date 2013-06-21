@@ -23,13 +23,13 @@ class Tile
 	protected:
 		unsigned short height;			//!< H&ouml;he des Bausteines
 		unsigned short width;			//!< Breite des Bausteines
-		Block ** blockArray;
+		char* blockArray;
 		void transpose();
 		void mirror();
-		virtual Block** createBaseArray() = 0;
+		virtual char* createBaseArray() = 0;
 	public:
-		Tile(const char *_title, const unsigned short _id, const unsigned short _width, const unsigned short _height, Block** _blockArray);
-		Tile(const char *_title, const unsigned short _id, const unsigned short _width, const unsigned short _height, const unsigned short _posX, const unsigned short _posY, Block** _blockArray);
+		Tile(const char *_title, const unsigned short _id, const unsigned short _width, const unsigned short _height, char* _blockArray);
+		Tile(const char *_title, const unsigned short _id, const unsigned short _width, const unsigned short _height, const unsigned short _posX, const unsigned short _posY, char* _blockArray);
 
 		virtual ~Tile();
 
@@ -51,9 +51,9 @@ class Tile
 		 */
 		void rotateccw(void);
 		/*!
-		 * Gibt den Zeiger auf den Block an der Stelle (x|y) zurück.
-		 * Hinweis: Wenn die Koordinaten (x|y) außerhalb der Grenzen der Steinmatrix liegen,
-		 * so wird ein neues Blockobjekt erzeugt und der Zeiger hierauf zurück gegeben.
+		 * Gibt den Zeiger auf den Block an der Stelle (x|y) zurï¿½ck.
+		 * Hinweis: Wenn die Koordinaten (x|y) auï¿½erhalb der Grenzen der Steinmatrix liegen,
+		 * so wird ein neues Blockobjekt erzeugt und der Zeiger hierauf zurï¿½ck gegeben.
 		 */
 		Block* getBlock(int x, int y) const;
 		/*
@@ -68,6 +68,8 @@ class Tile
 		 * Bewegt den Stein nach unten
 		 */
 		void moveDown(void);
+
+		char* getBlockArray(void);
 
 
 };

@@ -12,14 +12,14 @@ using namespace std;
 
 
 
-Tile::Tile(const char *_title, const unsigned short _id, const unsigned short _width, const unsigned short _height,	Block** _blockArray) :
+Tile::Tile(const char *_title, const unsigned short _id, const unsigned short _width, const unsigned short _height,	char* _blockArray) :
 		title(_title), id(_id), posX(0), posY(0), height(_height), width(_width), blockArray(_blockArray)
 {
 	// Randomisierung der Startrotation und der Spiegelung des Spielsteins.
 	randomize();
 }
 
-Tile::Tile(const char *_title, const unsigned short _id, const unsigned short _width, const unsigned short _height, const unsigned short _posX, const unsigned short _posY,	Block** _blockArray) :
+Tile::Tile(const char *_title, const unsigned short _id, const unsigned short _width, const unsigned short _height, const unsigned short _posX, const unsigned short _posY,	char* _blockArray) :
 		title(_title), id(_id), posX(_posX), posY(_posY), height(_height), width(_width), blockArray(_blockArray)
 {
 	// Randomisierung der Startrotation und der Spiegelung des Spielsteins.
@@ -105,7 +105,7 @@ void Tile::rotateccw() {
  * Transponiert das 2D Block Array der Form Block[width * height]
  */
 void Tile::transpose() {
-	Block** newArray = new Block*[height * width];
+	char* newArray = new char[height * width];
 	for (int x = 0; x < width; ++x) {
 		for (int y = 0; y < height; ++y) {
 			newArray[y * width + x] = blockArray[x * height + y]; //dafuq am i doin'
@@ -119,7 +119,7 @@ void Tile::transpose() {
  * Spiegelt das 2D Block Array der Form Block[width * height] vertikal.
  */
 void Tile::mirror() {
-	Block** newArray = new Block*[width * height];
+	char* newArray = new char[width * height];
 	for (int y = 0; y < height; ++y) {
 		for (int x = 0; x < width; ++x) {
 			newArray[x * height + y] = blockArray[(width - x - 1) * height + y]; //<3 2D Arrays.
@@ -133,12 +133,13 @@ Block* Tile::getBlock(int x, int y) const {
 	if (x >= width || y >= height || x < 0 || y < 0) {
 		return new Block(false);
 	}
-	return blockArray[x * height + y];
+	//return blockArray[x * height + y];
+	return new Block(false);
 }
 
-Block** Tile::createBaseArray() {
+char* Tile::createBaseArray() {
 	// TODO: Das sieht nicht gesund aus
-	return new Block*[width * height];
+	return new char[width * height];
 }
 
 void Tile::moveLeft(void) {
@@ -150,7 +151,7 @@ void Tile::moveRight(void) {
 }
 
 void Tile::moveDown(void) {
-	move(0,-1);
+	move(0,1);
 }
 
 void Tile::move(int dX, int dY) {
@@ -171,3 +172,7 @@ void Tile::randomize(void) {
 	return;
 }
 
+char* Tile::getBlockArray()
+{
+	return blockArray;
+}

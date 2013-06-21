@@ -12,14 +12,9 @@
 #include <cstring>
 using namespace std;
 
-Output::Output(GameState* game) : game(game), stein(new char[4*4]), posX(5), posY(1)
+Output::Output(GameState* game) : game(game)
 {
 	// TODO Auto-generated constructor stub
-
-	stein[0*4+0] = '-';stein[1*4+0] = '-';stein[2*4+0] = '-';stein[3*4+0] = '-';
-	stein[0*4+1] = '-';stein[1*4+1] = 'X';stein[2*4+1] = 'X';stein[3*4+1] = '-';
-	stein[0*4+2] = '-';stein[1*4+2] = 'X';stein[2*4+2] = 'X';stein[3*4+2] = '-';
-	stein[0*4+3] = '-';stein[1*4+3] = '-';stein[2*4+3] = '-';stein[3*4+3] = '-';
 }
 
 Output::~Output()
@@ -79,12 +74,6 @@ void Output::setNextTile()
 
 }
 
-void Output::moveDown()
-{
-	posY += 1;
-
-}
-
 void Output::setScore()
 {
 	if(game->getSpielfeld()->getScore()>=0)
@@ -106,23 +95,17 @@ void Output::setScore()
 
 void Output::drawTile()
 {
-	/*
-	// ----------------- Teststein -----------------
-	char* stein = new char[4*4];
-	stein[0*4+0] = '-';stein[1*4+0] = '-';stein[2*4+0] = '-';stein[3*4+0] = '-';
-	stein[0*4+1] = '-';stein[1*4+1] = 'X';stein[2*4+1] = 'X';stein[3*4+1] = '-';
-	stein[0*4+2] = '-';stein[1*4+2] = 'X';stein[2*4+2] = 'X';stein[3*4+2] = '-';
-	stein[0*4+3] = '-';stein[1*4+3] = '-';stein[2*4+3] = '-';stein[3*4+3] = '-';
-	*/
-	//int posX = game->getSpielfeld()->getActiveTile()->getPosX();
-	//int posY = game->getSpielfeld()->getActiveTile()->getPosY();
+	int posX = game->getSpielfeld()->getActiveTile()->getPosX();
+	int posY = game->getSpielfeld()->getActiveTile()->getPosY();
 
+	cout << posX << "|" << posY << endl;
+	Tile* teil = game->getSpielfeld()->getActiveTile();
 
-	for(int y = posY; y<(posY + 4); y++ )
+	for(int y = posY; y<(posY + teil->getHeight()); y++ )
 	{
-		for(int x = posX; x<(posX + 4) ; x++)
+		for(int x = posX; x<(posX + teil->getWidth()) ; x++)
 		{
-			game->getSpielfeld()->getSpielfeldinfo()[x*game->getSpielfeld()->getHeight()+y] = stein[(x-posX)*4+(y-posY)];
+			game->getSpielfeld()->getSpielfeldinfo()[x*game->getSpielfeld()->getHeight()+y] = teil->getBlockArray()[(x-posX)*4+(y-posY)];
 		}
 	}
 

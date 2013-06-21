@@ -18,7 +18,7 @@ class TileO : public Tile
 		TileO(const unsigned short _posX, const unsigned short _posY);
 		virtual ~TileO();
 	private:
-		virtual Block** createBaseArray();
+		virtual char* createBaseArray();
 };
 
 #endif /* TILEO_H_ */
