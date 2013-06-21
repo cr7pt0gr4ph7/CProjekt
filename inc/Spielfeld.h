@@ -13,6 +13,7 @@ private:
 	char *spielfeldinfo; //spielfeld + info
 	int nextTile;
 	int score;
+	int lines;
 public:
 	Spielfeld(int pWidth, int pHeight);
 	int getWidth();

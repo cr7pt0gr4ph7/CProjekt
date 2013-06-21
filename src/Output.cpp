@@ -72,7 +72,8 @@ void Output::setNextTile(GameState* pGameState)
 
 void Output::setScore(GameState* pGameState)
 {
-	pGameState->getSpielfeld()->addTextToInfo("Spielstand: " +pGameState->getSpielfeld()->score ,1,8);
+	pGameState->getSpielfeld()->addTextToInfo( +pGameState->getSpielfeld()->score+ " Punkte" ,1,8);
+	pGameState->getSpielfeld()->addTextToInfo( +pGameState->getSpielfeld()->lines+ " Linien" ,1,8);
 }
 
 
