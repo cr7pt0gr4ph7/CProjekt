@@ -14,7 +14,8 @@
 class Tile
 {
 	private:
-		const char *title;				//!< Name des Bausteines
+		const char *title;				//!< Name des Bausteins
+		const unsigned short id;				//!< ID des Bausteins
 		unsigned short posX;			//!< Position des Bausteins auf der x-Achse
 		unsigned short posY;			//!< Position des Bausteins auf der y-Achse
 		void move(int dX, int dY);      //!< Verschiebt den Baustein um dX|dY
@@ -27,12 +28,13 @@ class Tile
 		void mirror();
 		virtual Block** createBaseArray() = 0;
 	public:
-		Tile(const char *_title, const unsigned short _width, const unsigned short _height, Block** _blockArray);
-		Tile(const char *_title, const unsigned short _width, const unsigned short _height, const unsigned short _posX, const unsigned short _posY, Block** _blockArray);
+		Tile(const char *_title, const unsigned short _id, const unsigned short _width, const unsigned short _height, Block** _blockArray);
+		Tile(const char *_title, const unsigned short _id, const unsigned short _width, const unsigned short _height, const unsigned short _posX, const unsigned short _posY, Block** _blockArray);
 
 		virtual ~Tile();
 
 		const char* getTitle() const;
+		const unsigned short getId() const;
 		const unsigned short getHeight() const;
 		const unsigned short getWidth() const;
 		unsigned short getPosX() const;

@@ -9,12 +9,12 @@
 #include "TileS.h"
 
 TileS::TileS():
-	Tile("S", 3, 2, createBaseArray())
+	Tile("S", 3, 3, 2, createBaseArray())
 {
 }
 
 TileS::TileS(const unsigned short _posX, const unsigned short _posY) :
-		Tile("S", 3, 2, _posX, _posY, createBaseArray())
+		Tile("S", 3, 3, 2, _posX, _posY, createBaseArray())
 {
 }
 
