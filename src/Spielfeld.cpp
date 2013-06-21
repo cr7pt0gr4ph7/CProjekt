@@ -9,9 +9,19 @@
 #include <iostream>
 #include "Spielfeld.h"
 #include <cstring>
+#include <cstdlib>
 using namespace std;
 
-Spielfeld::Spielfeld(int pWidth, int pHeight) : width(pWidth), height(pHeight), infoWidth(20), spielfeld(new char[pWidth*pHeight]), info(new char[infoWidth*pHeight]), spielfeldinfo(new char[(pWidth+infoWidth)*pHeight])
+Spielfeld::Spielfeld(int pWidth, int pHeight) :
+						width(pWidth),
+						height(pHeight),
+						infoWidth(20),
+						spielfeld(new char[pWidth*pHeight]),
+						info(new char[infoWidth*pHeight]),
+						spielfeldinfo(new char[(pWidth+infoWidth)*pHeight]),
+						activeTile(nullptr),
+						nextTile(nullptr),
+						board(new Block[pWidth*pHeight])
 {
     clearSpielfeld();	//Leeres Spielfeld
     clearInfo(); 		//Leere Info
@@ -84,8 +94,8 @@ void Spielfeld::initInfo()
 	addTextToInfo("oooo", 3,5);
 	addTextToInfo("oooo", 3,6);
 	addTextToInfo("Spielstand:", 1,8);
-	addTextToInfo("----- Punkte",3,9);
-	addTextToInfo("  --- Linien",3,10);
+	addTextToInfo("Punkte ",3,9);
+	addTextToInfo("Linien ",3,10);
 	return;
 }
 
@@ -111,9 +121,79 @@ void Spielfeld::addTextToInfo(const char* pStr, int pX, int pY)
 	return;
 }
 
-int Spielfeld::getnextTile()
+void Spielfeld::initTiles()
+{
+	if(nextTile!=nullptr)
+	{
+		activeTile = nextTile;
+		setNextTile();
+		return;
+	}
+	setActiveTile();
+	setNextTile();
+	return;
+}
+
+void Spielfeld::setActiveTile()
+{
+	activeTile = randomTile();
+	return;
+}
+
+void Spielfeld::setNextTile()
+{
+	nextTile = randomTile();
+	return;
+}
+
+Tile* Spielfeld::randomTile()
+{
+	int rand_ = rand() % 5;
+	Tile* randTile;
+	switch(rand_)
+	{
+	case 0:
+		randTile = new TileI();
+		break;
+	case 1:
+		randTile = new TileL();
+		break;
+	case 2:
+		randTile = new TileO();
+		break;
+	case 3:
+		randTile = new TileS();
+		break;
+	case 4:
+		randTile = new TileT();
+		break;
+	}
+	return randTile;
+}
+
+Tile* Spielfeld::getNextTile()
 {
 	return nextTile;
+}
+
+int Spielfeld::getScore()
+{
+	return score;
+}
+
+int Spielfeld::getLines()
+{
+	return lines;
+}
+
+int Spielfeld::getInfoWidth()
+{
+	return infoWidth;
+}
+
+char* Spielfeld::getSpielfeldinfo()
+{
+	return spielfeldinfo;
 }
 
 Spielfeld::~Spielfeld()

@@ -27,6 +27,7 @@ void Output::render(GameState* pGameState)
 	// TODO Aktuellen Stein auslesen
 	// TODO Punktzahl auslesen
 	// TODO Spielfeld ausgeben
+	printGame(pGameState);
 
 
 }
@@ -34,7 +35,7 @@ void Output::setNextTile(GameState* pGameState)
 {
 
 
-	switch(pGameState->getSpielfeld()->nextTile)
+	switch(pGameState->getSpielfeld()->getNextTile()->getId())
 	{
 	case 0: 	pGameState->getSpielfeld()->addTextToInfo("  X ", 3,3);
 				pGameState->getSpielfeld()->addTextToInfo("  X ", 3,4);
@@ -74,17 +75,17 @@ void Output::setNextTile(GameState* pGameState)
 
 void Output::setScore(GameState* pGameState)
 {
-	if(pGameState->getSpielfeld()->score>0)
+	if(pGameState->getSpielfeld()->getScore()>0)
 	{
-		pGameState->getSpielfeld()->addTextToInfo( +pGameState->getSpielfeld()->score+ " Punkte" ,1,8);
+		pGameState->getSpielfeld()->addTextToInfo( "" + pGameState->getSpielfeld()->getScore(),11,9);
 	}
 	else
 		cout<<"ERROR!!! NEGATIVE SCORE ISNT POSSIBLE"<<endl;
 
 
-	if(pGameState->getSpielfeld()->score>0)
+	if(pGameState->getSpielfeld()->getLines()>0)
 	{
-		pGameState->getSpielfeld()->addTextToInfo( +pGameState->getSpielfeld()->lines+ " Linien" ,1,8);
+		pGameState->getSpielfeld()->addTextToInfo( "" + pGameState->getSpielfeld()->getLines(),11,10);
 	}
 	else
 		cout<<"NEGATIVE AMOUNT OF DONE LINES IS NONSENSE"<<endl;
@@ -98,18 +99,19 @@ void Output::printGame(GameState* pGameState)
 	setNextTile(pGameState);
 	pGameState->getSpielfeld()->addInfoToSpielfeld();
 
-		if(pGameState->getSpielfeld()->height>0 && pGameState->getSpielfeld()->width>0)
+		if(pGameState->getSpielfeld()->getHeight()>0 && pGameState->getSpielfeld()->getWidth()>0)
 		{
-			for(int y=0;y<pGameState->getSpielfeld()->height;y++)
+			for(int y=0;y<pGameState->getSpielfeld()->getHeight();y++)
 			{
-				for(int x=0 ; x<(pGameState->getSpielfeld()->infoWidth+pGameState->getSpielfeld()->width) ; x++)
+				for(int x=0 ; x<(pGameState->getSpielfeld()->getInfoWidth()+pGameState->getSpielfeld()->getWidth()) ; x++)
 				{
-					cout<< pGameState->getSpielfeld()->spielfeldinfo[x*pGameState->getSpielfeld()->height+y];
+					char* buffer = pGameState->getSpielfeld()->getSpielfeldinfo();
+					cout<< buffer[x*pGameState->getSpielfeld()->getHeight()+y];
 				}
 				cout<<endl;
 			}
 		}
 		else
-			cout<<"ERROR!!! WIDTH AND HEIGHT CANT BE NEGATIVE"<<endl
+			cout<<"ERROR!!! WIDTH AND HEIGHT CANT BE NEGATIVE"<<endl;
 		return;
 }
