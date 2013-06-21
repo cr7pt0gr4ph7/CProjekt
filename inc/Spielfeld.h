@@ -31,6 +31,7 @@ public:
 	int getLines();
 	char* getSpielfeldinfo();
 	Tile* getNextTile();
+	Tile* getActiveTile();
 	void initTiles();
 	void setNextTile();
 	void setActiveTile();
@@ -40,6 +41,7 @@ public:
 	void clearInfo(); //Info leeren
 	void initInfo(); //Info initialisieren
 	void addTextToInfo(const char* pStr, int pX, int pY); //Text an Punkt [X|Y] einfuegen
+	void addIntToInfo(int pInt, int pX, int pY); //Integer an Punkt [X|Y] einfuegen
 	void addInfoToSpielfeld(); //Info an Spielfeldhaengen
 	void drawPoint(int pX, int pY); //Punkt im Spielfeld einfuegen
 

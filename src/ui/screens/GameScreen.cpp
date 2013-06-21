@@ -12,7 +12,7 @@
 using namespace std;
 
 GameScreen::GameScreen() :
-		gameState(new GameState()), renderer(new Output())
+		gameState(new GameState()), renderer(new Output(gameState))
 {
 }
 
@@ -24,6 +24,26 @@ GameScreen::~GameScreen()
 void GameScreen::doLogic(void)
 {
 	// TODO Spiellogik implementieren bzw. in eigene Klasse auslagern
+	/*if(false) // tastendruck rechts
+	{
+		gameState->getSpielfeld()->getActiveTile()->moveRight();
+	}
+	if(false) // tastendruck links
+	{
+		gameState->getSpielfeld()->getActiveTile()->moveLeft();
+
+	}
+	if(false) // tastendruck oben -> spielstein im uhrzeigersinn drehen
+	{
+		gameState->getSpielfeld()->getActiveTile()->rotatecw();
+	}
+	if(false) // tastendruck unten -> spielstein sofort nach unten
+	{
+	}
+
+	//Spielstein immer eins nach unten
+	gameState->getSpielfeld()->getActiveTile()->moveDown();*/
+	renderer->moveDown();
 }
 
 void GameScreen::run(void)
@@ -34,7 +54,7 @@ void GameScreen::run(void)
 	{
 		doLogic();
 
-		renderer->render(gameState);
+		renderer->render();
 
 		// TODO Die fuer die Spiellogik und das Rendern benoetigte Zeit abziehen
 		wait_ms (gameState->getFrameDuration());

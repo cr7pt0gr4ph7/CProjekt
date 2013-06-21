@@ -11,14 +11,23 @@
 #include "logic/GameState.h"
 
 class Output {
+private:
+	GameState* game;
+
+	char* stein;
+	int posX;
+	int posY;
 
 public:
-	Output();
-	void render(GameState* pGameState);
+	void moveDown();
+
+	Output(GameState* pGameState);
+	void render();
 	~Output();
-	void printGame(GameState* pGameState);
-	void setNextTile(GameState* pGameState);
-	void setScore(GameState* pGameState);
+	void printGame();
+	void setNextTile();
+	void setScore();
+	void drawTile(); // wenn Tiles als char Arrays gespeichert sind
 };
 
 #endif /* OUTPUT_H_ */

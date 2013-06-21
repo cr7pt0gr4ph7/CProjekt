@@ -10,6 +10,7 @@
 #include "Spielfeld.h"
 #include <cstring>
 #include <cstdlib>
+#include <sstream>
 using namespace std;
 
 Spielfeld::Spielfeld(int pWidth, int pHeight) :
@@ -21,6 +22,8 @@ Spielfeld::Spielfeld(int pWidth, int pHeight) :
 						spielfeldinfo(new char[(pWidth+infoWidth)*pHeight]),
 						activeTile(nullptr),
 						nextTile(nullptr),
+						score(0),
+						lines(0),
 						board(new Block[pWidth*pHeight])
 {
     clearSpielfeld();	//Leeres Spielfeld
@@ -121,6 +124,19 @@ void Spielfeld::addTextToInfo(const char* pStr, int pX, int pY)
 	return;
 }
 
+void Spielfeld::addIntToInfo(int pInt, int pX, int pY)
+{
+	stringstream ss;
+	ss << pInt;
+
+	for(unsigned int x=pX;x<(pX+ss.str().size());x++)
+	{
+		info[x*height+pY] = ss.str()[x-pX];
+	}
+
+	return;
+}
+
 void Spielfeld::initTiles()
 {
 	if(nextTile!=nullptr)
@@ -176,6 +192,11 @@ Tile* Spielfeld::getNextTile()
 	return nextTile;
 }
 
+Tile* Spielfeld::getActiveTile()
+{
+	return activeTile;
+}
+
 int Spielfeld::getScore()
 {
 	return score;
@@ -199,4 +220,8 @@ char* Spielfeld::getSpielfeldinfo()
 Spielfeld::~Spielfeld()
 {
 	delete[] spielfeld;
+	delete[] spielfeldinfo;
+	delete[] info;
+	delete activeTile;
+	delete nextTile;
 }

@@ -12,9 +12,14 @@
 #include <cstring>
 using namespace std;
 
-Output::Output()
+Output::Output(GameState* game) : game(game), stein(new char[4*4]), posX(5), posY(1)
 {
 	// TODO Auto-generated constructor stub
+
+	stein[0*4+0] = '-';stein[1*4+0] = '-';stein[2*4+0] = '-';stein[3*4+0] = '-';
+	stein[0*4+1] = '-';stein[1*4+1] = 'X';stein[2*4+1] = 'X';stein[3*4+1] = '-';
+	stein[0*4+2] = '-';stein[1*4+2] = 'X';stein[2*4+2] = 'X';stein[3*4+2] = '-';
+	stein[0*4+3] = '-';stein[1*4+3] = '-';stein[2*4+3] = '-';stein[3*4+3] = '-';
 }
 
 Output::~Output()
@@ -22,91 +27,124 @@ Output::~Output()
 	// TODO Auto-generated destructor stub
 }
 
-void Output::render(GameState* pGameState)
+void Output::render()
 {
 	// TODO Aktuellen Stein auslesen
 	// TODO Punktzahl auslesen
 	// TODO Spielfeld ausgeben
-	printGame(pGameState);
+	printGame();
 
 
 }
-void Output::setNextTile(GameState* pGameState)
+void Output::setNextTile()
 {
 
-
-	switch(pGameState->getSpielfeld()->getNextTile()->getId())
+	if(game->getSpielfeld()->getNextTile() != nullptr)
+	switch(game->getSpielfeld()->getNextTile()->getId())
 	{
-	case 0: 	pGameState->getSpielfeld()->addTextToInfo("  X ", 3,3);
-				pGameState->getSpielfeld()->addTextToInfo("  X ", 3,4);
-				pGameState->getSpielfeld()->addTextToInfo("  X ", 3,5);
-				pGameState->getSpielfeld()->addTextToInfo("  X ", 3,6);
+	case 0: 	game->getSpielfeld()->addTextToInfo("  X ", 3,3);
+				game->getSpielfeld()->addTextToInfo("  X ", 3,4);
+				game->getSpielfeld()->addTextToInfo("  X ", 3,5);
+				game->getSpielfeld()->addTextToInfo("  X ", 3,6);
 				break;
 
-	case 1:	 	pGameState->getSpielfeld()->addTextToInfo("    ", 3,3);
-				pGameState->getSpielfeld()->addTextToInfo(" X  ", 3,4);
-				pGameState->getSpielfeld()->addTextToInfo(" X  ", 3,5);
-				pGameState->getSpielfeld()->addTextToInfo(" XX ", 3,6);
+	case 1:	 	game->getSpielfeld()->addTextToInfo("    ", 3,3);
+				game->getSpielfeld()->addTextToInfo(" X  ", 3,4);
+				game->getSpielfeld()->addTextToInfo(" X  ", 3,5);
+				game->getSpielfeld()->addTextToInfo(" XX ", 3,6);
 				break;
 
-	case 2:		pGameState->getSpielfeld()->addTextToInfo("    ", 3,3);
-				pGameState->getSpielfeld()->addTextToInfo(" XX ", 3,4);
-				pGameState->getSpielfeld()->addTextToInfo(" XX ", 3,5);
-				pGameState->getSpielfeld()->addTextToInfo("    ", 3,6);
+	case 2:		game->getSpielfeld()->addTextToInfo("    ", 3,3);
+				game->getSpielfeld()->addTextToInfo(" XX ", 3,4);
+				game->getSpielfeld()->addTextToInfo(" XX ", 3,5);
+				game->getSpielfeld()->addTextToInfo("    ", 3,6);
 				break;
 
-	case 3: 	pGameState->getSpielfeld()->addTextToInfo("    ", 3,3);
-				pGameState->getSpielfeld()->addTextToInfo(" XX ", 3,4);
-				pGameState->getSpielfeld()->addTextToInfo("XX  ", 3,5);
-				pGameState->getSpielfeld()->addTextToInfo("   ", 3,6);
+	case 3: 	game->getSpielfeld()->addTextToInfo("    ", 3,3);
+				game->getSpielfeld()->addTextToInfo(" XX ", 3,4);
+				game->getSpielfeld()->addTextToInfo("XX  ", 3,5);
+				game->getSpielfeld()->addTextToInfo("   ", 3,6);
 				break;
 
-	case 4:		pGameState->getSpielfeld()->addTextToInfo(" X  ", 3,3);
-				pGameState->getSpielfeld()->addTextToInfo(" XX ", 3,4);
-				pGameState->getSpielfeld()->addTextToInfo(" X  ", 3,5);
-				pGameState->getSpielfeld()->addTextToInfo("    ", 3,6);
+	case 4:		game->getSpielfeld()->addTextToInfo(" X  ", 3,3);
+				game->getSpielfeld()->addTextToInfo(" XX ", 3,4);
+				game->getSpielfeld()->addTextToInfo(" X  ", 3,5);
+				game->getSpielfeld()->addTextToInfo("    ", 3,6);
 				break;
 
 	default:	cout<<"nextTile out of Bounds--->Output.cpp/SetNextTile or Spielfeld.cpp/nextTile"<<endl;
 	}
 
+	return;
+
 }
 
-
-void Output::setScore(GameState* pGameState)
+void Output::moveDown()
 {
-	if(pGameState->getSpielfeld()->getScore()>0)
+	posY += 1;
+
+}
+
+void Output::setScore()
+{
+	if(game->getSpielfeld()->getScore()>=0)
 	{
-		pGameState->getSpielfeld()->addTextToInfo( "" + pGameState->getSpielfeld()->getScore(),11,9);
+		game->getSpielfeld()->addIntToInfo(game->getSpielfeld()->getScore(),10,9);
 	}
 	else
 		cout<<"ERROR!!! NEGATIVE SCORE ISNT POSSIBLE"<<endl;
 
 
-	if(pGameState->getSpielfeld()->getLines()>0)
+	if(game->getSpielfeld()->getLines()>=0)
 	{
-		pGameState->getSpielfeld()->addTextToInfo( "" + pGameState->getSpielfeld()->getLines(),11,10);
+		game->getSpielfeld()->addIntToInfo( game->getSpielfeld()->getLines(),10,10);
 	}
 	else
 		cout<<"NEGATIVE AMOUNT OF DONE LINES IS NONSENSE"<<endl;
 
 }
 
+void Output::drawTile()
+{
+	/*
+	// ----------------- Teststein -----------------
+	char* stein = new char[4*4];
+	stein[0*4+0] = '-';stein[1*4+0] = '-';stein[2*4+0] = '-';stein[3*4+0] = '-';
+	stein[0*4+1] = '-';stein[1*4+1] = 'X';stein[2*4+1] = 'X';stein[3*4+1] = '-';
+	stein[0*4+2] = '-';stein[1*4+2] = 'X';stein[2*4+2] = 'X';stein[3*4+2] = '-';
+	stein[0*4+3] = '-';stein[1*4+3] = '-';stein[2*4+3] = '-';stein[3*4+3] = '-';
+	*/
+	//int posX = game->getSpielfeld()->getActiveTile()->getPosX();
+	//int posY = game->getSpielfeld()->getActiveTile()->getPosY();
 
-void Output::printGame(GameState* pGameState)
+
+	for(int y = posY; y<(posY + 4); y++ )
+	{
+		for(int x = posX; x<(posX + 4) ; x++)
+		{
+			game->getSpielfeld()->getSpielfeldinfo()[x*game->getSpielfeld()->getHeight()+y] = stein[(x-posX)*4+(y-posY)];
+		}
+	}
+
+}
+
+void Output::printGame()
 {
 	clear_console_window();
-	setNextTile(pGameState);
-	pGameState->getSpielfeld()->addInfoToSpielfeld();
+	game->getSpielfeld()->clearSpielfeld();
+	setNextTile();
+	setScore();
+	game->getSpielfeld()->addInfoToSpielfeld();
+	drawTile();
 
-		if(pGameState->getSpielfeld()->getHeight()>0 && pGameState->getSpielfeld()->getWidth()>0)
+		if(game->getSpielfeld()->getHeight()>0 && game->getSpielfeld()->getWidth()>0)
 		{
-			for(int y=0;y<pGameState->getSpielfeld()->getHeight();y++)
+			for(int y=0;y<game->getSpielfeld()->getHeight();y++)
 			{
-				for(int x=0 ; x<(pGameState->getSpielfeld()->getInfoWidth()+pGameState->getSpielfeld()->getWidth()) ; x++)
+				for(int x=0 ; x<(game->getSpielfeld()->getInfoWidth()+game->getSpielfeld()->getWidth()) ; x++)
 				{
-					char* buffer = pGameState->getSpielfeld()->getSpielfeldinfo();
-					cout<< buffer[x*pGameState->getSpielfeld()->getHeight()+y];
+					char* buffer = game->getSpielfeld()->getSpielfeldinfo();
+					cout<< buffer[x*game->getSpielfeld()->getHeight()+y];
 				}
 				cout<<endl;
 			}

@@ -83,6 +83,12 @@ int main(int argc, char* argv[])
 	cout << "=      CProjekt                                           =" << endl;
 	cout << "===========================================================" << endl;
 
+	Spielfeld* spiel = new Spielfeld(20,25);
+	const char* s= "score";
+	s += spiel->getScore();
+	cout << s + spiel->getScore() << endl;
+	delete spiel;
+
 	wait_ms(1000);
 
 	if(startscreen->startscrPrintout())
