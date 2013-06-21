@@ -10,12 +10,12 @@
 #include <iostream>
 
 TileT::TileT() :
-		Tile("T", 3, 2, createBaseArray())
+		Tile("T", 4, 3, 2, createBaseArray())
 {
 }
 
 TileT::TileT(const unsigned short _posX, const unsigned short _posY) :
-		Tile("T", 3, 2, _posX, _posY, createBaseArray())
+		Tile("T", 4, 3, 2, _posX, _posY, createBaseArray())
 {
 }
 

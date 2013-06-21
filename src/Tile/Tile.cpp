@@ -12,15 +12,15 @@ using namespace std;
 
 
 
-Tile::Tile(const char *_title, const unsigned short _width, const unsigned short _height,	Block** _blockArray) :
-		title(_title), posX(0), posY(0), height(_height), width(_width), blockArray(_blockArray)
+Tile::Tile(const char *_title, const unsigned short _id, const unsigned short _width, const unsigned short _height,	Block** _blockArray) :
+		title(_title), id(_id), posX(0), posY(0), height(_height), width(_width), blockArray(_blockArray)
 {
 	// Randomisierung der Startrotation und der Spiegelung des Spielsteins.
 	randomize();
 }
 
-Tile::Tile(const char *_title, const unsigned short _width, const unsigned short _height, const unsigned short _posX, const unsigned short _posY,	Block** _blockArray) :
-		title(_title), posX(_posX), posY(_posY), height(_height), width(_width), blockArray(_blockArray)
+Tile::Tile(const char *_title, const unsigned short _id, const unsigned short _width, const unsigned short _height, const unsigned short _posX, const unsigned short _posY,	Block** _blockArray) :
+		title(_title), id(_id), posX(_posX), posY(_posY), height(_height), width(_width), blockArray(_blockArray)
 {
 	// Randomisierung der Startrotation und der Spiegelung des Spielsteins.
 	randomize();
@@ -35,6 +35,11 @@ Tile::~Tile() {
 const char* Tile::getTitle() const
 {
 	return title;
+}
+
+const unsigned short Tile::getId() const
+{
+	return id;
 }
 
 const unsigned short Tile::getHeight() const
