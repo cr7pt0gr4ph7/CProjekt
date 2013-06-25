@@ -95,17 +95,19 @@ void Output::setScore()
 
 void Output::drawTile()
 {
-	int posX = game->getSpielfeld()->getActiveTile()->getPosX();
-	int posY = game->getSpielfeld()->getActiveTile()->getPosY();
-
-	cout << posX << "|" << posY << endl;
 	Tile* teil = game->getSpielfeld()->getActiveTile();
+	int posX = teil->getPosX();
+	int posY = teil->getPosY();
+
+	char* teilarray = teil->getBlockArray();
+
+	cout << posX << "|" << posY << "|" << game->getSpielfeld()->getActiveTile()->getId() << endl;
 
 	for(int y = posY; y<(posY + teil->getHeight()); y++ )
 	{
 		for(int x = posX; x<(posX + teil->getWidth()) ; x++)
 		{
-			game->getSpielfeld()->getSpielfeldinfo()[x*game->getSpielfeld()->getHeight()+y] = teil->getBlockArray()[(x-posX)*4+(y-posY)];
+			game->getSpielfeld()->getSpielfeld()[x*game->getSpielfeld()->getHeight()+y] = teilarray[(x-posX)*teil->getHeight()+(y-posY)];
 		}
 	}
 
@@ -117,8 +119,8 @@ void Output::printGame()
 	game->getSpielfeld()->clearSpielfeld();
 	setNextTile();
 	setScore();
-	game->getSpielfeld()->addInfoToSpielfeld();
 	drawTile();
+	game->getSpielfeld()->addInfoToSpielfeld();
 
 		if(game->getSpielfeld()->getHeight()>0 && game->getSpielfeld()->getWidth()>0)
 		{

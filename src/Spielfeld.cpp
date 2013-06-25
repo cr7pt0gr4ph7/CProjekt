@@ -213,9 +213,38 @@ int Spielfeld::getInfoWidth()
 	return infoWidth;
 }
 
+char* Spielfeld::getSpielfeld()
+{
+	return spielfeld;
+}
+
 char* Spielfeld::getSpielfeldinfo()
 {
 	return spielfeldinfo;
+}
+
+int Spielfeld::checkBottomCollision()
+{
+	for(int i = 0; i<activeTile->getWidth() ; i++)
+		if(spielfeld[(activeTile->getPosX()+i)*height+(activeTile->getPosY()+activeTile->getHeight())]!=' ')
+			return 1;
+	return 0;
+}
+
+int Spielfeld::checkLeftCollision()
+{
+	for(int i = 0; i<activeTile->getHeight() ; i++)
+		if(spielfeld[(activeTile->getPosX()-1)*height+(activeTile->getPosY()+activeTile->getHeight()+i)]!= ' ')
+			return 1;
+	return 0;
+}
+
+int Spielfeld::checkRightCollision()
+{
+	for(int i = 0; i<activeTile->getHeight() ; i++)
+		if(spielfeld[(activeTile->getPosX()+activeTile->getWidth()+1)*height+(activeTile->getPosY()+activeTile->getHeight()+i)]!= ' ')
+			return 1;
+	return 0;
 }
 
 Spielfeld::~Spielfeld()

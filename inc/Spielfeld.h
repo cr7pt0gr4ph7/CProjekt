@@ -29,6 +29,7 @@ public:
 	int getInfoWidth();
 	int getScore();
 	int getLines();
+	char* getSpielfeld();
 	char* getSpielfeldinfo();
 	Tile* getNextTile();
 	Tile* getActiveTile();
@@ -44,7 +45,9 @@ public:
 	void addIntToInfo(int pInt, int pX, int pY); //Integer an Punkt [X|Y] einfuegen
 	void addInfoToSpielfeld(); //Info an Spielfeldhaengen
 	void drawPoint(int pX, int pY); //Punkt im Spielfeld einfuegen
-
+	int checkBottomCollision(); //überprüfe auf kollisionen
+	int checkRightCollision();
+	int checkLeftCollision();
 	void getTiles();
 
 	void clearBoard(); //Block Spielfeld leeren

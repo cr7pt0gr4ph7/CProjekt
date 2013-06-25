@@ -43,7 +43,11 @@ void GameScreen::doLogic(void)
 
 	//Spielstein immer eins nach unten
 	*/
-	gameState->getSpielfeld()->getActiveTile()->moveDown();
+	Spielfeld* feld = gameState->getSpielfeld();
+	if(feld->checkBottomCollision())
+		feld->initTiles();
+	else
+		feld->getActiveTile()->moveDown();
 }
 
 void GameScreen::run(void)
