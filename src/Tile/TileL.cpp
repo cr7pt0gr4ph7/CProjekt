@@ -36,7 +36,7 @@ char* TileL::createBaseArray() {
 	result[1*height+1] = ' ';
 	// (0|2) bis (1|2)
 	result[0*height+2] = 'X';
-	result[1*height+2] = ' ';
+	result[1*height+2] = 'X';
 
 	return result;
 }
