@@ -8,8 +8,14 @@
 #include <iostream>
 #include "winlin.h"
 #include "ui/screens/GameScreen.h"
+#include <cstdio>
+#include <cstring>
+#ifdef __WIN32
+#include <conio.h>
+#endif
 
 using namespace std;
+
 
 GameScreen::GameScreen() :
 		gameState(new GameState()), renderer(new Output(gameState))
@@ -21,45 +27,59 @@ GameScreen::~GameScreen()
 	// TODO Auto-generated destructor stub
 }
 
-void GameScreen::doLogic(void)
+int GameScreen::doLogic(void)
 {
 	// TODO Spiellogik implementieren bzw. in eigene Klasse auslagern
-	/*if(false) // tastendruck rechts
-	{
-		gameState->getSpielfeld()->getActiveTile()->moveRight();
-	}
-	if(false) // tastendruck links
-	{
-		gameState->getSpielfeld()->getActiveTile()->moveLeft();
 
-	}
-	if(false) // tastendruck oben -> spielstein im uhrzeigersinn drehen
-	{
-		gameState->getSpielfeld()->getActiveTile()->rotatecw();
-	}
-	if(false) // tastendruck unten -> spielstein sofort nach unten
-	{
-	}
-
-	//Spielstein immer eins nach unten
-	*/
 	Spielfeld* feld = gameState->getSpielfeld();
+	if(kbhit())
+		switch(getch())
+		{
+		case 97: // Taste A -> nach links
+			if(feld->checkLeftCollision())
+			{
+				cout << "KOLLISION" << endl;
+				if(feld->getActiveTile()->getPosY() == 1) return 1;
+				feld->drawTile();
+				feld->initTiles();
+			}
+			else
+				feld->getActiveTile()->moveLeft();
+			break;
+		case 100: //Taste D -> nach rechts
+			if(feld->checkRightCollision())
+			{
+				cout << "KOLLISION" << endl;
+				if(feld->getActiveTile()->getPosY() == 1) return 1;
+				feld->drawTile();
+				feld->initTiles();
+			}
+			else
+				feld->getActiveTile()->moveRight();
+			break;
+		case 119: //Taste W -> drehen
+			feld->getActiveTile()->rotatecw();
+
+		}
 	if(feld->checkBottomCollision())
 	{
+		cout << "KOLLISION" << endl;
+		if(feld->getActiveTile()->getPosY()==1) return 1;
 		feld->drawTile();
 		feld->initTiles();
 	}
 	else
 		feld->getActiveTile()->moveDown();
+	return 0;
 }
 
 void GameScreen::run(void)
 {
 	clear_console_window();
 
-	while (true)
+	while(true)
 	{
-		doLogic();
+		if(doLogic()) break;
 
 		renderer->render();
 
@@ -70,4 +90,5 @@ void GameScreen::run(void)
 	//Game Over
 	wait_for_keypress();
 }
+
 

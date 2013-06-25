@@ -33,7 +33,7 @@ public:
 	void run();
 
 private:
-	void doLogic();
+	int doLogic(); //return = 1 wenn gameover
 };
 
 #endif /* GAMESCREEN_H_ */

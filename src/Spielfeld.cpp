@@ -105,9 +105,9 @@ void Spielfeld::clearInfo()
 
 void Spielfeld::setBuffer()
 {
-	clearBuffer();
-	buffer = spielfeldinfo;
+	//clearBuffer();
 	bufferTile();
+	buffer = spielfeldinfo;
 }
 char* Spielfeld::getBuffer()
 {
@@ -276,15 +276,11 @@ void Spielfeld::drawTile()
 	int posX = activeTile->getPosX();
 	int posY = activeTile->getPosY();
 
-	char* teilarray = activeTile->getBlockArray();
-
-	cout << posX << "|" << posY << "|" << activeTile->getId() << endl;
-
 	for(int y = posY; y<(posY + activeTile->getHeight()); y++ )
 	{
 		for(int x = posX; x<(posX + activeTile->getWidth()) ; x++)
 		{
-			spielfeld[x*height+y] = teilarray[(x-posX)*height+(y-posY)];
+			spielfeld[x*height+y] = activeTile->getBlockArray()[(x-posX)*height+(y-posY)];
 		}
 	}
 }
@@ -292,16 +288,13 @@ void Spielfeld::bufferTile()
 {
 	int posX = activeTile->getPosX();
 	int posY = activeTile->getPosY();
-
-	char* teilarray = activeTile->getBlockArray();
-
-	cout << posX << "|" << posY << "|" << activeTile->getId() << endl;
-
+	cout << posX << " | " << posY <<  endl;
+	cout << activeTile->getWidth() << " | " << activeTile->getHeight() << endl;
 	for(int y = posY; y<(posY + activeTile->getHeight()); y++ )
 	{
 		for(int x = posX; x<(posX + activeTile->getWidth()) ; x++)
 		{
-			buffer[x*height+y] = teilarray[(x-posX)*height+(y-posY)];
+			buffer[x*height+y] = activeTile->getBlockArray()[(x-posX)*height+(y-posY)];
 		}
 	}
 	return;
