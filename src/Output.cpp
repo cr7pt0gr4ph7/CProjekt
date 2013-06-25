@@ -93,48 +93,28 @@ void Output::setScore()
 
 }
 
-void Output::drawTile()
-{
-	Tile* teil = game->getSpielfeld()->getActiveTile();
-	int posX = teil->getPosX();
-	int posY = teil->getPosY();
 
-	char* teilarray = teil->getBlockArray();
-
-	cout << posX << "|" << posY << "|" << game->getSpielfeld()->getActiveTile()->getId() << endl;
-
-	for(int y = posY; y<(posY + teil->getHeight()); y++ )
-	{
-		for(int x = posX; x<(posX + teil->getWidth()) ; x++)
-		{
-			game->getSpielfeld()->getSpielfeld()[x*game->getSpielfeld()->getHeight()+y] = teilarray[(x-posX)*teil->getHeight()+(y-posY)];
-		}
-	}
-
-}
 
 void Output::printGame()
 {
 	clear_console_window();
-	game->getSpielfeld()->clearSpielfeld();
 	setNextTile();
 	setScore();
-	drawTile();
 	game->getSpielfeld()->addInfoToSpielfeld();
+	game->getSpielfeld()->setBuffer();
 
-		if(game->getSpielfeld()->getHeight()>0 && game->getSpielfeld()->getWidth()>0)
+	if(game->getSpielfeld()->getHeight()>0 && game->getSpielfeld()->getWidth()>0)
+	{
+		for(int y=0;y<game->getSpielfeld()->getHeight();y++)
 		{
-			for(int y=0;y<game->getSpielfeld()->getHeight();y++)
+			for(int x=0 ; x<(game->getSpielfeld()->getInfoWidth()+game->getSpielfeld()->getWidth()) ; x++)
 			{
-				for(int x=0 ; x<(game->getSpielfeld()->getInfoWidth()+game->getSpielfeld()->getWidth()) ; x++)
-				{
-					char* buffer = game->getSpielfeld()->getSpielfeldinfo();
-					cout<< buffer[x*game->getSpielfeld()->getHeight()+y];
-				}
-				cout<<endl;
+				cout<< game->getSpielfeld()->getBuffer()[x*game->getSpielfeld()->getHeight()+y];
 			}
+			cout<<endl;
 		}
-		else
-			cout<<"ERROR!!! WIDTH AND HEIGHT CANT BE NEGATIVE"<<endl;
-		return;
+	}
+	else
+		cout<<"ERROR!!! WIDTH AND HEIGHT CANT BE NEGATIVE"<<endl;
+	return;
 }

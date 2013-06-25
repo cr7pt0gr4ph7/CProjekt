@@ -20,14 +20,15 @@ Spielfeld::Spielfeld(int pWidth, int pHeight) :
 						spielfeld(new char[pWidth*pHeight]),
 						info(new char[infoWidth*pHeight]),
 						spielfeldinfo(new char[(pWidth+infoWidth)*pHeight]),
+						buffer(new char[(pWidth+infoWidth)*pHeight]),
 						activeTile(nullptr),
 						nextTile(nullptr),
 						score(0),
-						lines(0),
-						board(new Block[pWidth*pHeight])
+						lines(0)
 {
     clearSpielfeld();	//Leeres Spielfeld
     clearInfo(); 		//Leere Info
+    clearBuffer();		//Leere Buffer
     initInfo();			//Initialisiere Info
     initTiles();
 }
@@ -78,6 +79,18 @@ void Spielfeld::clearSpielfeld()
 	return;
 }
 
+void Spielfeld::clearBuffer()
+{
+	for(int y=0 ; y<height ; y++)//Spielfeld+Rand füllen
+	{
+		for(int x=0 ; x<(width+infoWidth) ; x++)
+		{
+			buffer[x*height+y]=' ';
+		}
+	}
+	return;
+}
+
 void Spielfeld::clearInfo()
 {
 	for(int y=0;y<height;y++)
@@ -88,6 +101,17 @@ void Spielfeld::clearInfo()
 		}
 	}
 	return;
+}
+
+void Spielfeld::setBuffer()
+{
+	clearBuffer();
+	buffer = spielfeldinfo;
+	bufferTile();
+}
+char* Spielfeld::getBuffer()
+{
+	return buffer;
 }
 
 void Spielfeld::initInfo()
@@ -245,6 +269,42 @@ int Spielfeld::checkRightCollision()
 		if(spielfeld[(activeTile->getPosX()+activeTile->getWidth()+1)*height+(activeTile->getPosY()+activeTile->getHeight()+i)]!= ' ')
 			return 1;
 	return 0;
+}
+
+void Spielfeld::drawTile()
+{
+	int posX = activeTile->getPosX();
+	int posY = activeTile->getPosY();
+
+	char* teilarray = activeTile->getBlockArray();
+
+	cout << posX << "|" << posY << "|" << activeTile->getId() << endl;
+
+	for(int y = posY; y<(posY + activeTile->getHeight()); y++ )
+	{
+		for(int x = posX; x<(posX + activeTile->getWidth()) ; x++)
+		{
+			spielfeld[x*height+y] = teilarray[(x-posX)*height+(y-posY)];
+		}
+	}
+}
+void Spielfeld::bufferTile()
+{
+	int posX = activeTile->getPosX();
+	int posY = activeTile->getPosY();
+
+	char* teilarray = activeTile->getBlockArray();
+
+	cout << posX << "|" << posY << "|" << activeTile->getId() << endl;
+
+	for(int y = posY; y<(posY + activeTile->getHeight()); y++ )
+	{
+		for(int x = posX; x<(posX + activeTile->getWidth()) ; x++)
+		{
+			buffer[x*height+y] = teilarray[(x-posX)*height+(y-posY)];
+		}
+	}
+	return;
 }
 
 Spielfeld::~Spielfeld()

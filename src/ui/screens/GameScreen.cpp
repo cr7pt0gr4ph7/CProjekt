@@ -45,7 +45,10 @@ void GameScreen::doLogic(void)
 	*/
 	Spielfeld* feld = gameState->getSpielfeld();
 	if(feld->checkBottomCollision())
+	{
+		feld->drawTile();
 		feld->initTiles();
+	}
 	else
 		feld->getActiveTile()->moveDown();
 }
