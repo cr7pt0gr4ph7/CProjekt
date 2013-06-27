@@ -20,7 +20,11 @@ int translateVKeyCode(int vKeyLinux) {
 	// S
 	case (115):
 			return 83;
-	}
+
+	// W
+	case (119):
+			return 87;
+
 
 	//TODO: Keycodes ergänzen
 	/*
@@ -36,6 +40,10 @@ int translateVKeyCode(int vKeyLinux) {
 	case ():
 			return 40;
 
+	// Up-Arrow
+	case ():
+			return 38;
+
 	// ESC
 	case ():
 			return 27;
@@ -43,5 +51,6 @@ int translateVKeyCode(int vKeyLinux) {
 	// P
 	case ():
 			return 80; */
+	}
 }
 
