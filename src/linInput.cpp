@@ -25,11 +25,10 @@ int translateVKeyCode(int vKeyLinux) {
 	case (119):
 			return 87;
 
-
-	//TODO: Keycodes ergänzen
-	/*
+	// TODO: Arrow-Keys sind nicht in ASCII definiert.
+/*
 	// Left-Arrow
-	case ():
+	case (37):
 			return 37;
 
 	// Right-Arrow
@@ -43,14 +42,14 @@ int translateVKeyCode(int vKeyLinux) {
 	// Up-Arrow
 	case ():
 			return 38;
-
+*/
 	// ESC
-	case ():
+	case (27):
 			return 27;
 
 	// P
-	case ():
-			return 80; */
+	case (70):
+			return 80;
 	}
 }
 

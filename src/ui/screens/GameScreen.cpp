@@ -59,6 +59,7 @@ int GameScreen::doLogic(void)
 			break;
 		case 119: //Taste W -> drehen
 			feld->getActiveTile()->rotatecw();
+			break;
 
 		}
 
