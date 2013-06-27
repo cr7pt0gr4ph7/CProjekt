@@ -48,6 +48,27 @@ void newSystem(const char* pStr)
 #endif
 }
 
+bool getKeyState(int vKey) {
+#ifdef __unix__
+	// UNIX-Systeme
+	if(kbhit())
+	{
+		if(getch() == vKey) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+#elif _WIN32
+	// Windows-Systeme
+	if(GetAsyncKeyState(vKey)) {
+		return true;
+	} else {
+		return false;
+	}
+#endif
+}
+
 void wait_for_keypress(void)
 {
 #ifdef __unix__

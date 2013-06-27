@@ -32,7 +32,7 @@ int GameScreen::doLogic(void)
 	// TODO Spiellogik implementieren bzw. in eigene Klasse auslagern
 
 	Spielfeld* feld = gameState->getSpielfeld();
-	if(kbhit())
+	if(kbhit()) {
 		switch(getch())
 		{
 		case 97: // Taste A -> nach links
@@ -61,15 +61,18 @@ int GameScreen::doLogic(void)
 			feld->getActiveTile()->rotatecw();
 
 		}
+
+	}
+
 	if(feld->checkBottomCollision())
 	{
 		cout << "KOLLISION" << endl;
 		if(feld->getActiveTile()->getPosY()==1) return 1;
 		feld->drawTile();
 		feld->initTiles();
-	}
-	else
+	} else {
 		feld->getActiveTile()->moveDown();
+	}
 	return 0;
 }
 
